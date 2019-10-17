@@ -1,21 +1,35 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # TidyWrappers
 
 <!-- badges: start -->
+```{r , echo=FALSE , results='asis' , message=FALSE}
+cat(
+badger::badge_devel("cparsania/tidywrappers" , color = "blue"),
+badger::badge_lifecycle()
+)
 
-[![](https://img.shields.io/badge/devel%20version-0.0.0.9000-blue.svg)](https://github.com/cparsania/tidywrappers)
-[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+```
 
 <!-- badges: end -->
 
-Aim of TidyWrappers is to provide handy wrapper functions to deal with
-`tbl` object.
+Aim of TidyWrappers is to provide handy wrapper functions to deal with `tbl` object.  
 
-# Examples
-
-``` r
+# Examples 
+```{r , eval = FALSE}
 
 ## count variables having all values are 0 in a tbl. 
 count_zero_vars()
@@ -32,3 +46,5 @@ get_zero_records()
 ## remove records (rows) having all values are 0 in a tbl.
 remove_zero_records()
 ```
+
+
