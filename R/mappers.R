@@ -122,8 +122,7 @@ get_zero_records <- function(tbl){
 #' @export
 #'
 #' @examples
-remove_all_zero_rows <- function(tbl){
-
+remove_zero_records <- function(tbl){
         mm <- as_mapper(~ .x %>% filter_if(is.numeric , any_vars(. > 0 )))
         tbl %>% mm()
 }
