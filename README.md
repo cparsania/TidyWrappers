@@ -45,5 +45,5 @@ tbl_replace_greater_than_or_equal()
 tbl_replace_less_than()
 
 #replace numeric values less than or equal given cutoff
-replace_less_than_or_equal()
+tbl_replace_less_than_or_equal()
 ```
