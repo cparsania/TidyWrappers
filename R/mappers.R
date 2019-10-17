@@ -167,6 +167,9 @@ add_log2_frac_to_numeric_vals <- function(tbl , frac){
 #
 
 
+separate_letter_number <- function(){
+
+}
 
 
 
