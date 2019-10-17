@@ -148,6 +148,7 @@ add_log2_frac_to_numeric_vals <- function(tbl , frac){
 }
 
 
+# Pooja edit
 # replace_less_than <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. < !!..2 , !!..3 , as.double(.) ) ))
 #
 # mpg %>% replace_less_than(2, 200)
