@@ -238,9 +238,28 @@ replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 }
 
 
-separate_letter_number <- function(){
 
+#' remove numeric values with less than \code{cutoff} in any one of the column
+#'
+#' @param tbl a tibble
+#' @param cutoff numeric value to be used as cutoff
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @return a tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_remove_less_than_or_equal(4)
+#' }#'
+#'
+tbl_remove_less_than_or_equal <- function(tbl, cutoff){
+
+       tbl %>% dplyr::filter_if(is.numeric, any_vars(. >= cutoff))
 }
+
+
 
 
 
