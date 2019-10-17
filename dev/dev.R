@@ -5,3 +5,9 @@ usethis::use_package(type = "imports" ,package = "magrittr")
 
 ## build docs
 devtools::document()
+
+##
+
+usethis::use_version()
+usethis::use_dev_version()
+
