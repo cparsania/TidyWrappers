@@ -16,12 +16,9 @@ a cheracter vector contaning variable names
 Get variable (names) having all values are 0 in a tbl.
 }
 \examples{
-\\donotrun{
- ggplot2::mpg \%>\% get_zero_vars()
+\dontrun{
 
- ###########################################
-
- tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
+ tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
  tbl
  tbl \%>\% get_zero_vars()
 
