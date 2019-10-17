@@ -12,9 +12,6 @@
 #' @examples
 #' \dontrun{
 #'
-#'  ggplot2::mpg %>% count_zero_vars()
-#'
-#'  ###########################################
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl %>% count_zero_vars()
@@ -35,11 +32,8 @@ count_zero_vars <- function( tbl) {
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr select_if
 #' @examples
-#' \donotrun{
+#' \dontrun{
 #'
-#'  ggplot2::mpg %>% remove_zero_vars()
-#'
-#'  ###########################################
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl
@@ -64,12 +58,9 @@ remove_zero_vars <- function(tbl){
 #' @export
 #'
 #' @examples
-#' \donotrun{
-#'  ggplot2::mpg %>% get_zero_vars()
+#' \dontrun{
 #'
-#'  ###########################################
-#'
-#'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
+#'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl
 #'  tbl %>% get_zero_vars()
 #'
@@ -91,14 +82,11 @@ get_zero_vars <- function(tbl){
 #' @export
 #'
 #' @examples
-#' \donotrun{
-#'  ggplot2::mpg %>% get_zero_records()
-#'
-#'  ###########################################
+#' \dontrun{
 #'
 #'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
 #'  tbl
-#'  tbl %>% get_zero_vars()
+#'  tbl %>% get_zero_records()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
 #'  tbl2 %>% get_zero_vars()
@@ -110,18 +98,25 @@ get_zero_records <- function(tbl){
 
 
 
-#' remove_all_zero_rows
+#' Remove records having all values are 0 in a tbl.
 #'
 #'
+#' @param tbl a tbl.
 #'
-#' From the given tibble function removes all the rows in which all the numeric values are 0. Tibble of remaining rows will be returned.
-#'
-#' @param tbl
-#'
-#' @return
+#' @return a tbl.
 #' @export
 #'
 #' @examples
+#'
+#' \dontrun{
+#'
+#'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
+#'  tbl
+#'  tbl %>% remove_zero_records()
+#'
+#'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
+#'  tbl2 %>% remove_zero_records()
+#' }
 remove_zero_records <- function(tbl){
         mm <- as_mapper(~ .x %>% filter_if(is.numeric , any_vars(. > 0 )))
         tbl %>% mm()
@@ -129,42 +124,118 @@ remove_zero_records <- function(tbl){
 
 
 
-#' add_frac_to_numeric_vals
+#' Apply log2 on numeric variables
 #'
-#'
-#' The given numeric value will be added into all the numeric columns of the given tibble and resulted values will be log2
-#'
-#' @param tbl
-#'
-#' @return
+#' @param tbl a tbl
+#' @param frac a numeric value to be added before applying log2
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @return a tbl
 #' @export
 #'
 #' @examples
-add_log2_frac_to_numeric_vals <- function(tbl , frac){
+#' \dontrun{
+#'
+#'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 )
+#'  tbl
+#'  tbl %>% convert_log2()
+#'  tbl %>% convert_log2(frac = 0.01)
+#'
+#' }
+convert_log2 <- function(tbl , frac = 0){
 
-        mm <- as_mapper(~ (.x %>% mutate_if(is.numeric , ~ log2 (. +  !!.y) )))
+        mm <- purrr::as_mapper(~ (.x %>% dplyr::mutate_if(is.numeric , ~ log2 (. +  !!.y) )))
 
         tbl %>% mm(frac)
 }
 
 
-# Pooja edit
-# replace_less_than <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. < !!..2 , !!..3 , as.double(.) ) ))
-#
-# mpg %>% replace_less_than(2, 200)
-#
-# replace_less_than_or_equal <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. <= !!..2 , !!..3 , as.double(.) ) ))
-#
-# mpg %>% replace_less_than_or_equal(2, 200)
-#
-# replace_greater_than <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. > !!..2 , !!..3 , as.double(.) ) ))
-#
-# mpg %>% replace_greater_than(2, 200)
-#
-# replace_greater_than_or_equal <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. >= !!..2 , !!..3 , as.double(.) ) ))
-#
-# mpg %>% replace_greater_than_or_equal(2, 200)
-#
+#' replace numeric values less than given \code{cutoff}
+#'
+#' @param tbl  a tbl.
+#' @param cutoff a numeric value to be used as a cutoff.
+#' @param replace_by a numeric value to be used to replace less than \code{cutoff}
+#'
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
+#' tbl %>% replace_less_than(4, 0 )
+#' }
+#'
+replace_less_than <- function(tbl, cutoff, replace_by ){
+        mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. < !!..2 , !!..3 , as.double(.) ) ))
+        tbl %>% mm(cutoff, replace_by)
+}
+
+
+#' replace numeric values less than or equal given \code{cutoff}
+#'
+#' @param tbl  a tbl.
+#' @param cutoff a numeric value to be used as a cutoff.
+#' @param replace_by a numeric value to be used to replace less than or equal \code{cutoff}
+#'
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
+#' tbl %>% replace_less_than_or_equal(4, 0 )
+#' }
+#'
+replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
+        mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. <= !!..2 , !!..3 , as.double(.) ) ))
+        tbl %>% mm(cutoff, replace_by)
+}
+
+
+#' replace numeric values greater than given \code{cutoff}
+#'
+#' @param tbl a tbl.
+#' @param cutoff a numeric value to be used as a cutoff.
+#' @param replace_by a numeric value to be used to replace greater than \code{cutoff}
+#'
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
+#' tbl %>% replace_greater_than(2, 1000 )
+#' }
+#'
+replace_greater_than <- function(tbl, cutoff, replace_by){
+
+        mm <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. > !!..2 , !!..3 , as.double(.) ) ))
+        tbl %>% mm(cutoff , replace_by)
+}
+
+
+#' replace numeric values greater than or equal to given \code{cutoff}
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as a cutoff.
+#' @param replace_by a numeric value to be used to replace greater than or equal \code{cutoff}
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
+#' tbl %>% replace_greater_than_or_equal(2, 1000 )
+#' }#'
+#'
+#'
+replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
+
+        mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate_if(is.numeric , ~ if_else(. >= !!..2 , !!..3 , as.double(.) ) ))
+        tbl %>% mm(cutoff , replace_by)
+}
 
 
 separate_letter_number <- function(){

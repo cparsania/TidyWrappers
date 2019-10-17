@@ -18,9 +18,6 @@ Count variables having all values are 0 in a tbl.
 \examples{
 \dontrun{
 
- ggplot2::mpg \%>\% count_zero_vars()
-
- ###########################################
 
  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
  tbl \%>\% count_zero_vars()

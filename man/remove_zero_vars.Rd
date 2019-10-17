@@ -16,11 +16,8 @@ a tbl.
 Remove variables having all values are 0 in a tbl.
 }
 \examples{
-\\donotrun{
+\dontrun{
 
- ggplot2::mpg \%>\% remove_zero_vars()
-
- ###########################################
 
  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
  tbl
