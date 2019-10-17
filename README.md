@@ -31,4 +31,19 @@ get_zero_records()
 
 ## remove records (rows) having all values are 0 in a tbl.
 remove_zero_records()
+
+# apply log2 on numeric variables
+convert_log2()
+
+# replace numeric values greater than given cutoff
+replace_greater_than()
+
+#replace numeric values greater than or equal to given cutoff
+replace_greater_than_or_equal()
+
+#replace numeric values less than given cutoff
+replace_less_than()
+
+#replace numeric values less than or equal given cutoff
+replace_less_than_or_equal()
 ```
