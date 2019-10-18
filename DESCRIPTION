@@ -13,7 +13,7 @@ Imports:
     purrr,
     magrittr,
     stringr,
-    tidyr,
+    tidyr (>= 1.0.0),
     stringi,
     tibble
 RoxygenNote: 6.1.1
