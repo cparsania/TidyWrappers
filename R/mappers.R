@@ -238,6 +238,29 @@ tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 
 
 
+
+#' remove numeric values with less than \code{cutoff} in any one of the column
+#'
+#' @param tbl a tibble
+#' @param cutoff numeric value to be used as cutoff
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @return a tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_remove_less_than_or_equal(4)
+#' }#'
+#'
+tbl_remove_less_than_or_equal <- function(tbl, cutoff){
+
+       tbl %>% dplyr::filter_if(is.numeric, any_vars(. >= cutoff))
+}
+
+
+
 #' Replace all occurance of \code{pattern} in all non numeric variables. Wrapper around \code{stringr::str_replace_all()}.
 #'
 #' @param tbl a tbl.
@@ -360,6 +383,7 @@ tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
 
 
 }
+
 
 
 
