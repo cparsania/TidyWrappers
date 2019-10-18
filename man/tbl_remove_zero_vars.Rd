@@ -21,7 +21,7 @@ Remove variables having all values are 0 in a tbl.
 
  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
  tbl
- tbl \%>\% remove_zero_vars()
+ tbl \%>\% tbl_remove_zero_vars()
 
  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4)
  tbl2 \%>\% tbl_remove_zero_vars()
