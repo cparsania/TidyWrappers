@@ -66,6 +66,19 @@ tbl_convert_row_zscore()
 
 ## convert numeric vars (columns) to zscore value.
 tbl_convert_column_zscore()
+
+## remove records with less than or equal cutoff in any one of the numeric var (column).
+tbl_remove_less_than_or_equal_any()
+
+## remove records with less than or equal cutoff in all numeric var (column).
+tbl_remove_less_than_or_equal_all()
+
+## remove records with greater than or equal cutoff in any numeric var (column).
+tbl_remove_greater_than_or_equal_any()
+
+## remove records with greater than or equal cutoff in all numeric var (column).
+tbl_remove_greater_than_or_equal_all()
+
 ```
 
 
