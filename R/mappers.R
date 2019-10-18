@@ -14,9 +14,9 @@
 #'
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
-#'  tbl %>% count_zero_vars()
+#'  tbl %>% tbl_count_zero_vars()
 #' }
-count_zero_vars <- function( tbl) {
+tbl_count_zero_vars <- function( tbl) {
         mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% ncol() )
         tbl %>% mm()
 }
@@ -37,12 +37,12 @@ count_zero_vars <- function( tbl) {
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl
-#'  tbl %>% remove_zero_vars()
+#'  tbl %>% tbl_remove_zero_vars()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4)
-#'  tbl2 %>% remove_zero_vars()
+#'  tbl2 %>% tbl_remove_zero_vars()
 #' }
-remove_zero_vars <- function(tbl){
+tbl_remove_zero_vars <- function(tbl){
         mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)  %>% `!`) ))
         tbl %>% mm()
 }
@@ -65,9 +65,9 @@ remove_zero_vars <- function(tbl){
 #'  tbl %>% get_zero_vars()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% get_zero_vars()
+#'  tbl2 %>% tbl_get_zero_vars()
 #' }
-get_zero_vars <- function(tbl){
+tbl_get_zero_vars <- function(tbl){
         mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% colnames() )
         tbl %>% mm()
 }
@@ -86,12 +86,12 @@ get_zero_vars <- function(tbl){
 #'
 #'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
 #'  tbl
-#'  tbl %>% get_zero_records()
+#'  tbl %>% tbl_get_zero_records()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% get_zero_vars()
+#'  tbl2 %>% tbl_get_zero_records()
 #' }
-get_zero_records <- function(tbl){
+tbl_get_zero_records <- function(tbl){
         mm <- purrr::as_mapper(~ .x %>% dplyr::filter_if(is.numeric , dplyr::all_vars( . == 0) ))
         tbl %>% mm()
 }
@@ -112,12 +112,12 @@ get_zero_records <- function(tbl){
 #'
 #'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
 #'  tbl
-#'  tbl %>% remove_zero_records()
+#'  tbl %>% tbl_remove_zero_records()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% remove_zero_records()
+#'  tbl2 %>% tbl_remove_zero_records()
 #' }
-remove_zero_records <- function(tbl){
+tbl_remove_zero_records <- function(tbl){
         mm <- as_mapper(~ .x %>% filter_if(is.numeric , any_vars(. > 0 )))
         tbl %>% mm()
 }
@@ -138,11 +138,11 @@ remove_zero_records <- function(tbl){
 #'
 #'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 )
 #'  tbl
-#'  tbl %>% convert_log2()
-#'  tbl %>% convert_log2(frac = 0.01)
+#'  tbl %>% tbl_convert_log2()
+#'  tbl %>% tbl_convert_log2(frac = 0.01)
 #'
 #' }
-convert_log2 <- function(tbl , frac = 0){
+tbl_convert_log2 <- function(tbl , frac = 0){
 
         mm <- purrr::as_mapper(~ (.x %>% dplyr::mutate_if(is.numeric , ~ log2 (. +  !!.y) )))
 
@@ -162,10 +162,10 @@ convert_log2 <- function(tbl , frac = 0){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
-#' tbl %>% replace_less_than(4, 0 )
+#' tbl %>% tbl_replace_less_than(4, 0 )
 #' }
 #'
-replace_less_than <- function(tbl, cutoff, replace_by ){
+tbl_replace_less_than <- function(tbl, cutoff, replace_by ){
         mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. < !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff, replace_by)
 }
@@ -183,10 +183,10 @@ replace_less_than <- function(tbl, cutoff, replace_by ){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
-#' tbl %>% replace_less_than_or_equal(4, 0 )
+#' tbl %>% tbl_replace_less_than_or_equal(4, 0 )
 #' }
 #'
-replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
+tbl_replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
         mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. <= !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff, replace_by)
 }
@@ -204,10 +204,10 @@ replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
-#' tbl %>% replace_greater_than(2, 1000 )
+#' tbl %>% tbl_replace_greater_than(2, 1000 )
 #' }
 #'
-replace_greater_than <- function(tbl, cutoff, replace_by){
+tbl_replace_greater_than <- function(tbl, cutoff, replace_by){
 
         mm <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. > !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff , replace_by)
@@ -227,15 +227,15 @@ replace_greater_than <- function(tbl, cutoff, replace_by){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = 5:1)
-#' tbl %>% replace_greater_than_or_equal(2, 1000 )
+#' tbl %>% tbl_replace_greater_than_or_equal(2, 1000 )
 #' }#'
 #'
 #'
-replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
-
+tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
         mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate_if(is.numeric , ~ if_else(. >= !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff , replace_by)
 }
+
 
 
 
@@ -258,6 +258,134 @@ tbl_remove_less_than_or_equal <- function(tbl, cutoff){
 
        tbl %>% dplyr::filter_if(is.numeric, any_vars(. >= cutoff))
 }
+
+
+
+#' Replace all occurance of \code{pattern} in all non numeric variables. Wrapper around \code{stringr::str_replace_all()}.
+#'
+#' @param tbl a tbl.
+#' @param pattern pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}
+#' @param replacement a character vector of replacements. Will be passed to argument \code{replacement} to function \code{stringr::str_replace_all()}
+#'
+#' @return a tbl
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @importFrom stringr str_replace_all
+#' @export
+#' @examples
+#'
+#' \dontrun{
+#'  tbl <- tibble::tibble(x = c(letters[1:5] ,letters[1:5] ) ,
+#'          y = c(LETTERS[1:5],LETTERS[1:5]) , z = 1:10 )
+#'  tbl %>% tbl_replace_string(pattern = "a" , replacement = "a_changed")
+#'  tbl %>% tbl_replace_string("[aeiou]", toupper)
+#'  tbl %>% tbl_replace_string("([aeiou])", "")
+#'  tbl %>% tbl_replace_string(c("a", "e", "i"), "-")
+#'  tbl %>% tbl_replace_string("b", NA_character_)
+#'
+#' }
+#' @seealso stringr::str_replace_all()
+#'
+tbl_replace_string <- function(tbl, pattern, replacement){
+
+        mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate_if(is.character, ~ stringr::str_replace_all( . ,pattern = !!..2 ,
+                                                                                                replacement = !!..3)))
+        tbl %>% mm(pattern , replacement)
+}
+
+
+#' Scale numeric vars (columns).
+#'
+#' @param tbl a tbl.
+#' @param scale TRUE  look at \code{scale} argument of function base::scale()
+#' @param center TRUE look at \code{center} argument of function base::scale()
+#'
+#' @return a tbl
+#' @export
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @examples
+#' \dontrun{
+#' tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) , zz = letters[1:6])
+#' tbl %>% tbl_convert_column_zscore()
+#' }
+#'
+#'
+tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
+
+        mm <- purrr::as_mapper(~ ..1  %>%
+                                       dplyr::mutate_if(is.numeric , ~ scale(. , scale = !!..2, center = !!..3) %>%
+                                                                .[,1]))
+        tbl %>% mm(scale, center)
+}
+
+
+#' Scale numeric records (rows).
+#'
+#' @param tbl a tbl.
+#' @param scale TRUE  for further details refer  \code{scale} argument of function \code{\link[base]{scale}}.
+#'   base::scale()
+#' @param center TRUE for further details refer \code{center} argument of function \code{\link[base]{scale}}.
+#'
+#' @return a tbl
+#' @export
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @importFrom stringi stri_rand_strings
+#' @importFrom dplyr select_if
+#' @importFrom tibble rownames_to_column
+#' @importFrom tidyr pivot_longer
+#' @importFrom dplyr group_by
+#' @importFrom dplyr mutate
+#' @importFrom dplyr select_if
+#' @importFrom tidyr pivot_wider
+#' @importFrom dplyr select
+#' @seealso  \code{\link[base]{scale}}
+#' @examples
+#' \dontrun{
+#' set.seed(12345)
+#' tbl <- tibble(x = sample(c(1:10) , 5) , y = sample(c(1:10) , 5) , z = sample(c(1:10) , 5) , zz = letters[1:5])
+#' tbl %>% tbl_convert_row_zscore()
+#' }
+#'
+#'
+tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
+
+
+        mm <- as_mapper(
+
+              .f =   function(x = ..1){
+
+                       ## create necessary vars
+                        row_names_var <- paste0("row_names_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
+                        key_var <- paste0("key_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
+                        value_var <- paste0("value_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
+                        zscore_var <- paste0("zscore_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
+
+                        ## get input tbl vars
+                        all_vars <- tbl %>% colnames()
+                        numeric_vars <- tbl %>% dplyr::select_if(is.numeric ) %>% colnames()
+
+                        tbl %>%
+                                tibble::rownames_to_column(var = row_names_var) %>%
+                                tidyr::pivot_longer(cols = c(numeric_vars) , names_to = key_var ,values_to = value_var) %>%
+                                dplyr::group_by(!!as.symbol(row_names_var)) %>%
+                                dplyr::mutate(!!as.symbol(zscore_var) := scale(!!as.symbol(value_var) , scale = scale , center = center)) %>%
+                                ungroup() %>% dplyr::select(-!!as.symbol(value_var)) %>%
+                                tidyr::pivot_wider(names_from = !!as.symbol(key_var) ,
+                                                   values_from = c(!!as.symbol(zscore_var)))%>%
+                                dplyr::select(!!all_vars)
+                }
+        )
+
+
+        tbl %>% mm()
+
+
+}
+
+
+
 
 
 

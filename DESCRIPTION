@@ -5,11 +5,15 @@ Version: 0.0.0.9000
 Author: Chirag Parsania
 Maintainer: Chirag Parsania <chirag.parsania@gmail.com>
 Description: Handy mappers to explore data
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
     dplyr,
     purrr,
-    magrittr
+    magrittr,
+    stringr,
+    tidyr,
+    stringi,
+    tibble
 RoxygenNote: 6.1.1
