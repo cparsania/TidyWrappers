@@ -32,24 +32,31 @@ tbl_get_zero_records()
 ## remove records (rows) having all values are 0 in a tbl.
 tbl_remove_zero_records()
 
-# apply log2 on numeric variables
+# apply log2 on numeric variables.
 tbl_convert_log2()
 
-# replace numeric values greater than given cutoff
+# replace numeric values greater than given cutoff.
 tbl_replace_greater_than()
 
-#replace numeric values greater than or equal to given cutoff
+#replace numeric values greater than or equal to given cutoff.
 tbl_replace_greater_than_or_equal()
 
-#replace numeric values less than given cutoff
+#replace numeric values less than given cutoff.
 tbl_replace_less_than()
 
-#replace numeric values less than or equal given cutoff
+#replace numeric values less than or equal given cutoff.
 tbl_replace_less_than_or_equal()
 
+<<<<<<< Updated upstream
 ## convert numeric records (rows) to zscore value 
 tbl_convert_row_zscore()
 
 ## convert numeric vars (columns) to zscore value 
+=======
+## convert numeric records (rows) to zscore value. 
+tbl_convert_row_zscore()
+
+## convert numeric vars (columns) to zscore value.
+>>>>>>> Stashed changes
 tbl_convert_column_zscore
 ```
