@@ -47,16 +47,9 @@ tbl_replace_less_than()
 #replace numeric values less than or equal given cutoff.
 tbl_replace_less_than_or_equal()
 
-<<<<<<< Updated upstream
-## convert numeric records (rows) to zscore value 
-tbl_convert_row_zscore()
-
-## convert numeric vars (columns) to zscore value 
-=======
 ## convert numeric records (rows) to zscore value. 
 tbl_convert_row_zscore()
 
 ## convert numeric vars (columns) to zscore value.
->>>>>>> Stashed changes
-tbl_convert_column_zscore
+tbl_convert_column_zscore()
 ```
