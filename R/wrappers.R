@@ -149,6 +149,59 @@ tbl_convert_log2 <- function(tbl , frac = 0){
         tbl %>% mm(frac)
 }
 
+#' Apply log10 on numeric variables
+#'
+#' @param tbl a tbl
+#' @param frac a numeric value to be added before applying log10
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @return a tbl
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 )
+#'  tbl
+#'  tbl %>% tbl_convert_log10()
+#'  tbl %>% tbl_convert_log10(frac = 0.01)
+#'
+#' }
+tbl_convert_log10 <- function(tbl , frac = 0){
+
+        mm <- purrr::as_mapper(~ (.x %>% dplyr::mutate_if(is.numeric , ~ log10(. +  !!.y) )))
+
+        tbl %>% mm(frac)
+}
+
+
+#' Apply log on numeric variables
+#'
+#' @param tbl a tbl
+#' @param base a positive number with respect to which log are computed
+#' @param frac a numeric value to be added before applying log
+#'
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr mutate_if
+#' @return a tbl
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 )
+#'  tbl
+#'  tbl %>% tbl_convert_log(base = 3)
+#'  tbl %>% tbl_convert_log(base = 3 , frac = 0.01)
+#'
+#' }
+tbl_convert_log <- function(tbl , frac = 0, base = 2){
+
+        mm <- purrr::as_mapper(~ (..1 %>% dplyr::mutate_if(is.numeric , ~ log(. +  !!..2 ,base = !!..3) )))
+
+        tbl %>% mm(frac , base = base)
+}
+
 
 #' replace numeric values less than given \code{cutoff}
 #'
@@ -319,7 +372,7 @@ tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return
+#' @return a tbl
 #' @export
 #'
 #' @examples
@@ -344,7 +397,7 @@ tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return
+#' @return a tbl
 #' @export
 #'
 #' @examples
@@ -368,7 +421,7 @@ tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return
+#' @return a tbl
 #' @export
 #'
 #' @examples
@@ -392,7 +445,7 @@ tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return
+#' @return a tbl
 #' @export
 #'
 #' @examples
@@ -415,7 +468,7 @@ tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return
+#' @return a tbl
 #' @export
 #'
 #' @examples
