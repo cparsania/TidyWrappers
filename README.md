@@ -64,4 +64,16 @@ tbl_remove_greater_than_or_equal_any()
 
 ## remove records with greater than or equal cutoff in all numeric var (column).
 tbl_remove_greater_than_or_equal_all()
+
+## keep records with less than or equal cutoff in any numeric var (column).
+tbl_keep_less_than_or_equal_any()
+
+## keep records with less than or equal cutoff in all numeric var (column).
+tbl_keep_less_than_or_equal_all()
+
+## keep records with greater than or equal cutoff in any numeric var (column).
+tbl_keep_greater_than_or_equal_any()
+
+## keep records with greater than or equal cutoff in all numeric var (column).
+tbl_keep_greater_than_or_equal_all()
 ```

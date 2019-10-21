@@ -335,6 +335,100 @@ tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
 
 
 
+#' keep records with less than or equal \code{cutoff} in any numeric var
+#'
+#' @param tbl a tbl
+#' @param cutoff numeric value to be used as cutoff
+#'
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @importFrom purrr as_mapper
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_keep_less_than_or_equal_any(cutoff =4)
+#' }
+#'
+tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
+        mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. <= !!..2)) )
+        tbl %>% mm(cutoff)
+}
+
+
+#' keep records with less than or equal \code{cutoff} in all numeric var
+#'
+#' @param tbl a tbl
+#' @param cutoff numeric value to be used as cutoff
+#'
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @importFrom purrr as_mapper
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_keep_less_than_or_equal_all(cutoff =4)
+#' }
+#'
+tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
+        mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. <= !!..2)) )
+        tbl %>% mm(cutoff)
+}
+
+
+#' keep records with greater than or equal \code{cutoff} in any numeric var
+#'
+#' @param tbl a tbl
+#' @param cutoff numeric value to be used as cutoff
+#'
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @importFrom purrr as_mapper
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_keep_greater_than_or_equal_any(cutoff =4)
+#' }
+#'
+tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
+        mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. >= !!..2)) )
+        tbl %>% mm(cutoff)
+}
+
+#' keep records with greater than or equal \code{cutoff} in all numeric var
+#'
+#' @param tbl a tbl
+#' @param cutoff numeric value to be used as cutoff
+#'
+#' @importFrom dplyr filter_if
+#' @importFrom dplyr any_vars
+#' @importFrom purrr as_mapper
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
+#' tbl %>% tbl_keep_greater_than_or_equal_all(cutoff =4)
+#' }
+#'
+tbl_keep_greater_than_or_equal_all <- function(tbl , cutoff){
+        mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. >= !!..2)) )
+        tbl %>% mm(cutoff)
+}
+
 
 #' Replace all occurance of \code{pattern} in all non numeric variables. Wrapper around \code{stringr::str_replace_all()}.
 #'
@@ -388,9 +482,7 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 #'
 tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 
-        mm <- purrr::as_mapper(~ ..1  %>%
-                                       dplyr::mutate_if(is.numeric , ~ scale(. , scale = !!..2, center = !!..3) %>%
-                                                                .[,1]))
+        mm <- purrr::as_mapper(~ ..1  %>% dplyr::mutate_if(is.numeric , ~ scale(. , scale = !!..2, center = !!..3) %>% .[,1]))
         tbl %>% mm(scale, center)
 }
 
