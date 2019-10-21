@@ -604,10 +604,56 @@ tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
 
 }
 
+#' Extract numeric values from alpha-numeric values
+#'
+#' @param tbl a tbl.
+#' @param var column name, the column fom which numbers are to be extracted
+#'
+#' @return a tbl
+#' @export
+#'
+#' @importFrom dplyr mutate
+#' @importFrom stringr str_extract
+#' @importFrom purrr as_mapper
+#' @importFrom rlang ensym
+#' @examples
+#' \dontrun{
+#' alpha_num <-  cbind(paste0(LETTERS[1:10], 1:10), letters[1:10]) %>% as_tibble()
+#' alpha_num  %>%  tbl_extract_numbers(V1)
+#' }
+tbl_extract_numbers <- function(tbl, var){
+
+        vars <- ensym(var)
+        vars_num <- paste0(vars,"_numeric", sep="")
+        mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate(!!as.symbol(vars_num) := stringr::str_extract(string = !!..2, pattern = "[:digit:]+")))
+        tbl %>% mm(vars)
+}
 
 
 
-
+#' Extract words/alphabets from alpha-numeric values
+#'
+#' @param tbl a tbl
+#' @param var column name, the column fom which words are to be extracted
+#'
+#' @return a tbl
+#' @export
+#' @importFrom dplyr mutate
+#' @importFrom stringr str_extract
+#' @importFrom purrr as_mapper
+#' @importFrom rlang ensym
+#' @examples
+#' \dontrun{
+#' alpha_num <-  cbind(paste0(LETTERS[1:10], 1:10), letters[1:10]) %>% as_tibble()
+#' alpha_num  %>%  tbl_extract_words(V1)
+#' }
+#'
+tbl_extract_words <- function(tbl, var){
+        vars <- ensym(var)
+        vars_num <- paste0(vars,"_alpha", sep="")
+        mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate(!!as.symbol(vars_num) := stringr::str_extract(string = !!..2, pattern = "[:alpha:]+")))
+        tbl %>% mm(vars)
+}
 
 
 
