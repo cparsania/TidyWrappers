@@ -35,6 +35,12 @@ tbl_remove_zero_records()
 # apply log2 on numeric variables.
 tbl_convert_log2()
 
+# apply log10 on numeric variables.
+tbl_convert_log10()
+
+# apply log to defined base on numeric variables.
+tbl_convert_log()
+
 # replace numeric values greater than given cutoff.
 tbl_replace_greater_than()
 
