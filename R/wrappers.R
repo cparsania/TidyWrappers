@@ -17,6 +17,7 @@
 #'  tbl %>% tbl_count_zero_vars()
 #' }
 tbl_count_zero_vars <- function( tbl) {
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% ncol() )
         tbl %>% mm()
 }
@@ -43,6 +44,7 @@ tbl_count_zero_vars <- function( tbl) {
 #'  tbl2 %>% tbl_remove_zero_vars()
 #' }
 tbl_remove_zero_vars <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)  %>% `!`) ))
         tbl %>% mm()
 }
@@ -68,6 +70,7 @@ tbl_remove_zero_vars <- function(tbl){
 #'  tbl2 %>% tbl_get_zero_vars()
 #' }
 tbl_get_zero_vars <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% colnames() )
         tbl %>% mm()
 }
@@ -92,6 +95,7 @@ tbl_get_zero_vars <- function(tbl){
 #'  tbl2 %>% tbl_get_zero_records()
 #' }
 tbl_get_zero_records <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ .x %>% dplyr::filter_if(is.numeric , dplyr::all_vars( . == 0) ))
         tbl %>% mm()
 }
@@ -118,6 +122,7 @@ tbl_get_zero_records <- function(tbl){
 #'  tbl2 %>% tbl_remove_zero_records()
 #' }
 tbl_remove_zero_records <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- as_mapper(~ .x %>% filter_if(is.numeric , any_vars(. > 0 )))
         tbl %>% mm()
 }
@@ -143,7 +148,7 @@ tbl_remove_zero_records <- function(tbl){
 #'
 #' }
 tbl_convert_log2 <- function(tbl , frac = 0){
-
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ (.x %>% dplyr::mutate_if(is.numeric , ~ log2 (. +  !!.y) )))
 
         tbl %>% mm(frac)
@@ -168,7 +173,7 @@ tbl_convert_log2 <- function(tbl , frac = 0){
 #'
 #' }
 tbl_convert_log10 <- function(tbl , frac = 0){
-
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ (.x %>% dplyr::mutate_if(is.numeric , ~ log10(. +  !!.y) )))
 
         tbl %>% mm(frac)
@@ -196,7 +201,7 @@ tbl_convert_log10 <- function(tbl , frac = 0){
 #'
 #' }
 tbl_convert_log <- function(tbl , frac = 0, base = 2){
-
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ (..1 %>% dplyr::mutate_if(is.numeric , ~ log(. +  !!..2 ,base = !!..3) )))
 
         tbl %>% mm(frac , base = base)
@@ -219,6 +224,7 @@ tbl_convert_log <- function(tbl , frac = 0, base = 2){
 #' }
 #'
 tbl_replace_less_than <- function(tbl, cutoff, replace_by ){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. < !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff, replace_by)
 }
@@ -240,6 +246,7 @@ tbl_replace_less_than <- function(tbl, cutoff, replace_by ){
 #' }
 #'
 tbl_replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <-  purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. <= !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff, replace_by)
 }
@@ -261,7 +268,7 @@ tbl_replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
 #' }
 #'
 tbl_replace_greater_than <- function(tbl, cutoff, replace_by){
-
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1 %>% mutate_if(is.numeric , ~ if_else(. > !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff , replace_by)
 }
@@ -285,6 +292,7 @@ tbl_replace_greater_than <- function(tbl, cutoff, replace_by){
 #'
 #'
 tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate_if(is.numeric , ~ if_else(. >= !!..2 , !!..3 , as.double(.) ) ))
         tbl %>% mm(cutoff , replace_by)
 }
@@ -309,6 +317,7 @@ tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 #' }
 #'
 tbl_remove_less_than_or_equal_any <- function(tbl, cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>% dplyr::filter_if(is.numeric, all_vars(. > !!..2)  ))
        tbl %>% mm(cutoff)
 }
@@ -333,6 +342,7 @@ tbl_remove_less_than_or_equal_any <- function(tbl, cutoff){
 #' }
 #'
 tbl_remove_less_than_or_equal_all <- function(tbl, cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. > !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -358,6 +368,7 @@ tbl_remove_less_than_or_equal_all <- function(tbl, cutoff){
 #' }
 #'
 tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. < !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -382,6 +393,7 @@ tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
 #' }
 #'
 tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. < !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -407,6 +419,7 @@ tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
 #' }
 #'
 tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. <= !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -431,6 +444,7 @@ tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
 #' }
 #'
 tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. <= !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -455,6 +469,7 @@ tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
 #' }
 #'
 tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. >= !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -478,6 +493,7 @@ tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
 #' }
 #'
 tbl_keep_greater_than_or_equal_all <- function(tbl , cutoff){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. >= !!..2)) )
         tbl %>% mm(cutoff)
 }
@@ -510,6 +526,7 @@ tbl_keep_greater_than_or_equal_all <- function(tbl , cutoff){
 #'
 tbl_replace_string <- function(tbl, pattern, replacement){
 
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1 %>% dplyr::mutate_if(is.character, ~ stringr::str_replace_all( . ,pattern = !!..2 ,
                                                                                                 replacement = !!..3)))
         tbl %>% mm(pattern , replacement)
@@ -535,8 +552,11 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 #'
 tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+
+
         mm <- purrr::as_mapper(~ ..1  %>% dplyr::mutate_if(is.numeric , ~ scale(. , scale = !!..2, center = !!..3) %>% .[,1]))
-        tbl %>% mm(scale, center)
+        tbl  %>% mm(scale, center)
 }
 
 
@@ -572,7 +592,7 @@ tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 #'
 #'
 tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
-
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
 
               .f =   function(...){
 
