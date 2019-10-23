@@ -560,6 +560,8 @@ tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 #' @importFrom dplyr select_if
 #' @importFrom tidyr pivot_wider
 #' @importFrom dplyr select
+#' @importFrom rlang sym
+#' @importFrom rlang syms
 #' @seealso  \code{\link[base]{scale}}
 #' @examples
 #' \dontrun{
@@ -572,9 +574,7 @@ tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
 
 
-        mm <- as_mapper(
-
-              .f =   function(x = ..1){
+              .f =   function(...){
 
                        ## create necessary vars
                         row_names_var <- paste0("row_names_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
@@ -583,23 +583,22 @@ tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
                         zscore_var <- paste0("zscore_",stringi::stri_rand_strings(n = 1, length = 10 ,pattern = '[a-zA-Z]'))
 
                         ## get input tbl vars
-                        all_vars <- tbl %>% colnames()
-                        numeric_vars <- tbl %>% dplyr::select_if(is.numeric ) %>% colnames()
+                        all_vars <- ..1 %>% colnames()
+                        numeric_vars <- ..1 %>% dplyr::select_if(is.numeric ) %>% colnames()
 
-                        tbl %>%
+                        ..1 %>%
                                 tibble::rownames_to_column(var = row_names_var) %>%
                                 tidyr::pivot_longer(cols = c(numeric_vars) , names_to = key_var ,values_to = value_var) %>%
-                                dplyr::group_by(!!as.symbol(row_names_var)) %>%
-                                dplyr::mutate(!!as.symbol(zscore_var) := scale(!!as.symbol(value_var) , scale = scale , center = center)) %>%
-                                ungroup() %>% dplyr::select(-!!as.symbol(value_var)) %>%
-                                tidyr::pivot_wider(names_from = !!as.symbol(key_var) ,
-                                                   values_from = c(!!as.symbol(zscore_var)))%>%
-                                dplyr::select(!!all_vars)
+                                dplyr::group_by(!!rlang::sym(row_names_var)) %>%
+                                dplyr::mutate(!!rlang::sym(zscore_var) := scale(!!rlang::sym(value_var) , scale = ..2 , center = ..3)) %>%
+                                ungroup() %>% dplyr::select(-!!rlang::sym(value_var)) %>%
+                                tidyr::pivot_wider(names_from = !!rlang::sym(key_var) ,
+                                                   values_from = c(!!rlang::sym(zscore_var)))%>%
+                                dplyr::select(!!! rlang::syms(all_vars))
                 }
-        )
 
 
-        tbl %>% mm()
+        .f(..1 = tbl , ..2 = scale, ..3 = center)
 
 
 }
