@@ -7,6 +7,7 @@
 #'
 #' @return an integer
 #' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples

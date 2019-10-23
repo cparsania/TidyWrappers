@@ -15,5 +15,6 @@ Imports:
     stringr,
     tidyr (>= 1.0.0),
     stringi,
-    tibble
+    tibble,
+    rlang
 RoxygenNote: 6.1.1
