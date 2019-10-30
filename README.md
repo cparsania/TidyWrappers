@@ -10,7 +10,11 @@
 
 <!-- badges: end -->
 
+<<<<<<< HEAD
 TidyWrappers is an R package to deal with an object `tbl`. It provides
+=======
+TidyWrappers is an R package to deal with an object `tbl`. It provide
+>>>>>>> master
 handy wrapper functions to get, count, convert, keep, remove and replace
 data from `tbl` object.
 

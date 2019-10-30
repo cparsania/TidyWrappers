@@ -26,7 +26,11 @@ badger::badge_lifecycle()
 
 <!-- badges: end -->
 
+<<<<<<< HEAD
 TidyWrappers is an R package to deal with an object `tbl`. It provides handy wrapper functions to get, count, convert, keep, remove and replace data from `tbl` object.  
+=======
+TidyWrappers is an R package to deal with an object `tbl`. It provide handy wrapper functions to get, count, convert, keep, remove and replace data from `tbl` object.  
+>>>>>>> master
 
 # Examples 
 ```{r , eval = FALSE}
