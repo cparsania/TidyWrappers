@@ -10,8 +10,9 @@
 
 <!-- badges: end -->
 
-Aim of TidyWrappers is to provide handy wrapper functions to deal with
-`tbl` object.
+TidyWrappers is an R package to deal with an object `tbl`. It provide
+handy wrapper functions to get, count, convert, keep, remove and replace
+data from `tbl` object.
 
 # Examples
 
