@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_count_vars_zero_all}
 \alias{tbl_count_vars_zero_all}
-\title{Count variables having all values are 0 in a tbl.}
+\title{Count columns having all values are 0.}
 \usage{
 tbl_count_vars_zero_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_count_vars_zero_all(tbl)
 an integer
 }
 \description{
-Count variables having all values are 0 in a tbl.
+Count columns having all values are 0.
 }
 \examples{
 \dontrun{

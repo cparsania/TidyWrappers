@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_keep_rows_zero_all}
 \alias{tbl_keep_rows_zero_all}
-\title{Subset records (rows) having all values are 0 in a tbl.}
+\title{Subset rows having all values are 0.}
 \usage{
 tbl_keep_rows_zero_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_keep_rows_zero_all(tbl)
 a tbl.
 }
 \description{
-Subset records (rows) having all values are 0 in a tbl.
+Subset rows having all values are 0.
 }
 \examples{
 \dontrun{

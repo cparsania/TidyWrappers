@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_rows_zero_any}
 \alias{tbl_remove_rows_zero_any}
-\title{Remove records having atleast one 0}
+\title{Remove rows having atleast one 0.}
 \usage{
 tbl_remove_rows_zero_any(tbl)
 }
@@ -13,7 +13,7 @@ tbl_remove_rows_zero_any(tbl)
 a tbl.
 }
 \description{
-Remove records having atleast one 0
+Remove rows having atleast one 0.
 }
 \examples{
 

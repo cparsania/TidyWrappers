@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_less_than_or_equal_any}
 \alias{tbl_remove_less_than_or_equal_any}
-\title{remove records with less than or equal \code{cutoff} in any one of the numeric var}
+\title{Remove rows with less than or equal 'cutoff' in any numeric column.}
 \usage{
 tbl_remove_less_than_or_equal_any(tbl, cutoff)
 }
@@ -15,7 +15,7 @@ tbl_remove_less_than_or_equal_any(tbl, cutoff)
 a tbl
 }
 \description{
-remove records with less than or equal \code{cutoff} in any one of the numeric var
+Remove rows with less than or equal 'cutoff' in any numeric column.
 }
 \examples{
 \dontrun{

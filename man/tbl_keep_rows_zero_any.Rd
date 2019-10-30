@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_keep_rows_zero_any}
 \alias{tbl_keep_rows_zero_any}
-\title{Subset records (rows) having atleast one 0}
+\title{Subset rows having atleast one 0.}
 \usage{
 tbl_keep_rows_zero_any(tbl)
 }
@@ -13,7 +13,7 @@ tbl_keep_rows_zero_any(tbl)
 a tbl.
 }
 \description{
-Subset records (rows) having atleast one 0
+Subset rows having atleast one 0.
 }
 \examples{
 \dontrun{

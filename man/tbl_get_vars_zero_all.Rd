@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_get_vars_zero_all}
 \alias{tbl_get_vars_zero_all}
-\title{Get variable (names) having all values are 0 in a tbl.}
+\title{Get columns names having all values are 0.}
 \usage{
 tbl_get_vars_zero_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_get_vars_zero_all(tbl)
 a cheracter vector contaning variable names
 }
 \description{
-Get variable (names) having all values are 0 in a tbl.
+Get columns names having all values are 0.
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_vars_NA_any}
 \alias{tbl_remove_vars_NA_any}
-\title{Remove variables having atlease one NA}
+\title{Remove columns having atlease one NA}
 \usage{
 tbl_remove_vars_NA_any(tbl)
 }
@@ -13,7 +13,7 @@ tbl_remove_vars_NA_any(tbl)
 an integer
 }
 \description{
-Remove variables having atlease one NA
+Remove columns having atlease one NA
 }
 \examples{
 \dontrun{

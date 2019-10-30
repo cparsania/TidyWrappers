@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_vars_NA_all}
 \alias{tbl_remove_vars_NA_all}
-\title{Remove variables having all values are NA in a tbl.}
+\title{Remove columns having all values are NA.}
 \usage{
 tbl_remove_vars_NA_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_remove_vars_NA_all(tbl)
 an integer
 }
 \description{
-Remove variables having all values are NA in a tbl.
+Remove columns having all values are NA.
 }
 \examples{
 \dontrun{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_get_vars_NA_all}
 \alias{tbl_get_vars_NA_all}
-\title{Get variables names having all values are NA in a tbl.}
+\title{Get columns names having all values are NA.}
 \usage{
 tbl_get_vars_NA_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_get_vars_NA_all(tbl)
 a cheracter vector contaning variable names
 }
 \description{
-Get variables names having all values are NA in a tbl.
+Get columns names having all values are NA.
 }
 \examples{
 \dontrun{

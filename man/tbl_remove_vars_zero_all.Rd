@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_vars_zero_all}
 \alias{tbl_remove_vars_zero_all}
-\title{Remove variables having all values are 0 in a tbl.}
+\title{Remove columns having all values are 0.}
 \usage{
 tbl_remove_vars_zero_all(tbl)
 }
@@ -13,7 +13,7 @@ tbl_remove_vars_zero_all(tbl)
 a tbl.
 }
 \description{
-Remove variables having all values are 0 in a tbl.
+Remove columns having all values are 0.
 }
 \examples{
 \dontrun{

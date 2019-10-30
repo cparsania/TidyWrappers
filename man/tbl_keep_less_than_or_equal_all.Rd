@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_keep_less_than_or_equal_all}
 \alias{tbl_keep_less_than_or_equal_all}
-\title{keep records with less than or equal \code{cutoff} in all numeric var}
+\title{Keep rows with less than or equal 'cutoff' in all numeric columns.}
 \usage{
 tbl_keep_less_than_or_equal_all(tbl, cutoff)
 }
@@ -15,7 +15,7 @@ tbl_keep_less_than_or_equal_all(tbl, cutoff)
 a tbl
 }
 \description{
-keep records with less than or equal \code{cutoff} in all numeric var
+Keep rows with less than or equal 'cutoff' in all numeric columns.
 }
 \examples{
 \dontrun{

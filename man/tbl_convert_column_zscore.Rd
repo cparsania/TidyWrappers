@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_column_zscore}
 \alias{tbl_convert_column_zscore}
-\title{Scale numeric vars (columns).}
+\title{Scale numeric columns.}
 \usage{
 tbl_convert_column_zscore(tbl, scale = TRUE, center = TRUE)
 }
@@ -17,7 +17,7 @@ tbl_convert_column_zscore(tbl, scale = TRUE, center = TRUE)
 a tbl
 }
 \description{
-Scale numeric vars (columns).
+Scale numeric columns.
 }
 \examples{
 \dontrun{

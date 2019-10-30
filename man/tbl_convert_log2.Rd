@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_log2}
 \alias{tbl_convert_log2}
-\title{Apply log2 on numeric variables}
+\title{Apply log2 on numeric columns.}
 \usage{
 tbl_convert_log2(tbl, frac = 0)
 }
@@ -15,7 +15,7 @@ tbl_convert_log2(tbl, frac = 0)
 a tbl
 }
 \description{
-Apply log2 on numeric variables
+Apply log2 on numeric columns.
 }
 \examples{
 \dontrun{

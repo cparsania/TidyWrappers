@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_get_vars_zero_any}
 \alias{tbl_get_vars_zero_any}
-\title{Get variable (names) having atleast one 0}
+\title{Get columns names having atleast one 0.}
 \usage{
 tbl_get_vars_zero_any(tbl)
 }
@@ -13,7 +13,7 @@ tbl_get_vars_zero_any(tbl)
 a cheracter vector contaning variable names
 }
 \description{
-Get variable (names) having atleast one 0
+Get columns names having atleast one 0.
 }
 \examples{
 \dontrun{
