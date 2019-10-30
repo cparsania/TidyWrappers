@@ -1,3 +1,71 @@
+#' Count variables having all values are NA in a tbl.
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return an integer
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
+#'  tbl %>% tbl_count_vars_NA_all()
+#' }
+tbl_count_vars_NA_all <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (is.na(.)) %>% all(. ,na.rm = T)) ) %>% ncol() )
+        tbl %>% mm()
+}
+
+#' Remove variables having all values are NA in a tbl.
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return an integer
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
+#'  tbl %>% tbl_remove_vars_NA_all()
+#' }
+tbl_remove_vars_NA_all <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (is.na(.)) %>% all(.,na.rm = T)  %>% `!`) ))
+        tbl %>% mm()
+}
+
+#' Get variables names having all values are NA in a tbl.
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a cheracter vector contaning variable names
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
+#'  tbl %>% tbl_get_vars_NA_all()
+#' }
+tbl_get_vars_NA_all <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( is.na(.) %>% all(.,na.rm = T)) ) %>% colnames() )
+        tbl %>% mm()
+}
 
 
 #' Count variables having all values are 0 in a tbl.
@@ -15,11 +83,11 @@
 #'
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
-#'  tbl %>% tbl_count_zero_vars()
+#'  tbl %>% tbl_count_vars_zero_all()
 #' }
-tbl_count_zero_vars <- function( tbl) {
+tbl_count_vars_zero_all <- function( tbl) {
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
-        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% ncol() )
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.,na.rm = T)) ) %>% ncol() )
         tbl %>% mm()
 }
 
@@ -39,14 +107,14 @@ tbl_count_zero_vars <- function( tbl) {
 #'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl
-#'  tbl %>% tbl_remove_zero_vars()
+#'  tbl %>% tbl_remove_vars_zero_all()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4)
-#'  tbl2 %>% tbl_remove_zero_vars()
+#'  tbl2 %>% tbl_remove_vars_zero_all()
 #' }
-tbl_remove_zero_vars <- function(tbl){
+tbl_remove_vars_zero_all <- function(tbl){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
-        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)  %>% `!`) ))
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.,na.rm = T)  %>% `!`) ))
         tbl %>% mm()
 }
 
@@ -65,14 +133,14 @@ tbl_remove_zero_vars <- function(tbl){
 #'
 #'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl
-#'  tbl %>% get_zero_vars()
+#'  tbl %>% tbl_get_vars_zero_all()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% tbl_get_zero_vars()
+#'  tbl2 %>% tbl_get_vars_zero_all()
 #' }
-tbl_get_zero_vars <- function(tbl){
+tbl_get_vars_zero_all <- function(tbl){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
-        mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.)) ) %>% colnames() )
+        mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% all(.,na.rm = T)) ) %>% colnames() )
         tbl %>% mm()
 }
 
@@ -90,12 +158,12 @@ tbl_get_zero_vars <- function(tbl){
 #'
 #'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
 #'  tbl
-#'  tbl %>% tbl_get_zero_records()
+#'  tbl %>% tbl_keep_rows_zero_all()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% tbl_get_zero_records()
+#'  tbl2 %>% tbl_keep_rows_zero_all()
 #' }
-tbl_get_zero_records <- function(tbl){
+tbl_keep_rows_zero_all <- function(tbl){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ .x %>% dplyr::filter_if(is.numeric , dplyr::all_vars( . == 0) ))
         tbl %>% mm()
@@ -117,14 +185,215 @@ tbl_get_zero_records <- function(tbl){
 #'
 #'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
 #'  tbl
-#'  tbl %>% tbl_remove_zero_records()
+#'  tbl %>% tbl_remove_rows_zero_all()
 #'
 #'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0  , xx = 0:4 , yy = 0)
-#'  tbl2 %>% tbl_remove_zero_records()
+#'  tbl2 %>% tbl_remove_rows_zero_all()
 #' }
-tbl_remove_zero_records <- function(tbl){
+tbl_remove_rows_zero_all <- function(tbl){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- as_mapper(~ .x %>% filter_if(is.numeric , any_vars(. > 0 )))
+        tbl %>% mm()
+}
+
+
+
+
+#' Count variables having atleast one NA
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return an integer
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) , xx= 1:5)
+#'  tbl %>% tbl_count_vars_NA_any()
+#' }
+tbl_count_vars_NA_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (is.na(.)) %>% any(. , na.rm = T)) ) %>% ncol() )
+        tbl %>% mm()
+}
+
+#' Remove variables having atlease one NA
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return an integer
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) , xx= 1:5)
+#'  tbl %>% tbl_remove_vars_NA_any()
+#' }
+tbl_remove_vars_NA_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (is.na(.)) %>% any(., na.rm = T)  %>% `!`) ))
+        tbl %>% mm()
+}
+
+#' Get variables names having atleast one NA
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a cheracter vector contaning variable names
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) , xx= 1:5)
+#'  tbl %>% tbl_get_vars_NA_any()
+#' }
+tbl_get_vars_NA_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( is.na(.) %>% any(. , na.rm = T)) ) %>% colnames() )
+        tbl %>% mm()
+}
+
+
+#' Count variables having atleast one 0
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return an integer
+#' @importFrom purrr as_mapper
+#' @importFrom tibble is_tibble
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(0,2,3,NA,5) , xx= 0:4)
+#'  tbl %>% tbl_count_vars_zero_any()
+#' }
+tbl_count_vars_zero_any <- function( tbl) {
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% any(. ,na.rm = T )) ) %>% ncol() )
+        tbl %>% mm()
+}
+
+
+#' Remove variables having atleast one 0
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a tbl.
+#' @export
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr select_if
+#' @examples
+#' \dontrun{
+#'
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
+#'  tbl
+#'  tbl %>% tbl_remove_vars_zero_any()
+#'
+#'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(0,2,3,NA,5) , xx= 0:4)
+#'  tbl %>% tbl_remove_vars_zero_any()
+#' }
+tbl_remove_vars_zero_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-  purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% any(. , na.rm = T)  %>% `!`) ))
+        tbl %>% mm()
+}
+
+#' Get variable (names) having atleast one 0
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a cheracter vector contaning variable names
+#' @importFrom purrr as_mapper
+#' @importFrom dplyr select_if
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'  tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
+#'  tbl
+#'  tbl %>% tbl_get_vars_zero_any()
+#'
+#'  tbl2 <- tibble(x = letters[1:5] , y = NA , z = c(0,2,3,NA,5) , xx= 0:4)
+#'  tbl2 %>% tbl_get_vars_zero_any()
+#' }
+tbl_get_vars_zero_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <-   purrr::as_mapper(~ .x %>% dplyr::select_if( ~ ( (. == 0) %>% any(. , na.rm = T)) ) %>% colnames() )
+        tbl %>% mm()
+}
+
+
+#' Subset records (rows) having atleast one 0
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'
+#'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
+#'  tbl
+#'  tbl %>% tbl_keep_rows_zero_any()
+#'
+#'  tbl2 <- tibble(x = letters[1:5] , y = NA , z = c(0,2,3,NA,5) , xx= 0:4)
+#'  tbl2 %>% tbl_keep_rows_zero_any()
+#' }
+tbl_keep_rows_zero_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <- purrr::as_mapper(~ .x %>% dplyr::filter_if(is.numeric , dplyr::any_vars( . == 0) ))
+        tbl %>% mm()
+}
+
+
+
+#' Remove records having atleast one 0
+#'
+#'
+#' @param tbl a tbl.
+#'
+#' @return a tbl.
+#' @export
+#'
+#' @examples
+#'
+#' \dontrun{
+#'
+#'  tbl <- tibble(x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
+#'  tbl
+#'  tbl %>% tbl_remove_rows_zero_any()
+#'
+#'  tbl2 <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 4:0  , xx = 0:4)
+#'  tbl2 %>% tbl_remove_rows_zero_any()
+#' }
+tbl_remove_rows_zero_any <- function(tbl){
+        if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
+        mm <- as_mapper(~ .x %>% filter_if(is.numeric , all_vars(. > 0 )))
         tbl %>% mm()
 }
 
