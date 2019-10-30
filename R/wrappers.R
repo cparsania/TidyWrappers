@@ -582,10 +582,10 @@ tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_remove_less_than_or_equal_any(cutoff =4)
+#' tbl %>% tbl_remove_rows_less_than_or_equal_any(cutoff =4)
 #' }
 #'
-tbl_remove_less_than_or_equal_any <- function(tbl, cutoff){
+tbl_remove_rows_less_than_or_equal_any <- function(tbl, cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>% dplyr::filter_if(is.numeric, all_vars(. > !!..2)  ))
        tbl %>% mm(cutoff)
@@ -633,10 +633,10 @@ tbl_remove_rows_less_than_or_equal_all <- function(tbl, cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_remove_greater_than_or_equal_any(cutoff =4)
+#' tbl %>% tbl_remove_rows_greater_than_or_equal_any(cutoff =4)
 #' }
 #'
-tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
+tbl_remove_rows_greater_than_or_equal_any <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. < !!..2)) )
         tbl %>% mm(cutoff)
@@ -684,10 +684,10 @@ tbl_remove_rows_greater_than_or_equal_all <- function(tbl , cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_keep_less_than_or_equal_any(cutoff =4)
+#' tbl %>% tbl_keep_rows_less_than_or_equal_any(cutoff =4)
 #' }
 #'
-tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
+tbl_keep_rows_less_than_or_equal_any <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. <= !!..2)) )
         tbl %>% mm(cutoff)
@@ -709,10 +709,10 @@ tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_keep_less_than_or_equal_all(cutoff =4)
+#' tbl %>% tbl_keep_rows_less_than_or_equal_all(cutoff =4)
 #' }
 #'
-tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
+tbl_keep_rows_less_than_or_equal_all <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. <= !!..2)) )
         tbl %>% mm(cutoff)

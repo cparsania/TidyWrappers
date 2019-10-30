@@ -36,15 +36,15 @@ tbl_get_vars_NA_any()   ## Get columns names having atleast one NA.
 tbl_get_vars_zero_all() ## Get columns names having all values are 0.
 tbl_get_vars_zero_any() ## Get columns names having atleast one 0.
 
-tbl_keep_less_than_or_equal_all()   ## Keep rows with less than or equal 'cutoff' in all numeric columns.
-tbl_keep_less_than_or_equal_any()   ## Keep rows with less than or equal 'cutoff' in any numeric column.
+tbl_keep_rows_less_than_or_equal_all()  ## Keep rows with less than or equal 'cutoff' in all numeric columns.
+tbl_keep_rows_less_than_or_equal_any()  ## Keep rows with less than or equal 'cutoff' in any numeric column.
 tbl_keep_rows_greater_than_or_equal_all()   ## Keep rows with greater than or equal 'cutoff' in all numeric columns.
 tbl_keep_rows_greater_than_or_equal_any()   ## Keep rows with greater than or equal 'cutoff' in any numeric column.
 tbl_keep_rows_zero_all()    ## Keep rows having all values are 0.
 tbl_keep_rows_zero_any()    ## Keep rows having atleast one 0.
 
-tbl_remove_greater_than_or_equal_any()  ## Remove rows with greater than or equal 'cutoff' in any numeric column.
-tbl_remove_less_than_or_equal_any() ## Remove rows with less than or equal 'cutoff' in any numeric column.
+tbl_remove_rows_greater_than_or_equal_any() ## Remove rows with greater than or equal 'cutoff' in any numeric column.
+tbl_remove_rows_less_than_or_equal_any()    ## Remove rows with less than or equal 'cutoff' in any numeric column.
 tbl_remove_rows_greater_than_or_equal_all() ## Remove rows with greater than or equal 'cutoff' in all numeric column.
 tbl_remove_rows_less_than_or_equal_all()    ## Remove rows with less than or equal 'cutoff' in all numeric column.
 tbl_remove_rows_zero_all()  ## Remove rows having all values are 0.
