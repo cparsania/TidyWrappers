@@ -1,4 +1,4 @@
-#' Count variables having all values are NA in a tbl.
+#' Count columns having all values are NA.
 #'
 #'
 #' @param tbl a tbl.
@@ -21,7 +21,7 @@ tbl_count_vars_NA_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Remove variables having all values are NA in a tbl.
+#' Remove columns having all values are NA.
 #'
 #'
 #' @param tbl a tbl.
@@ -44,7 +44,7 @@ tbl_remove_vars_NA_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get variables names having all values are NA in a tbl.
+#' Get columns names having all values are NA.
 #'
 #'
 #' @param tbl a tbl.
@@ -68,7 +68,7 @@ tbl_get_vars_NA_all <- function(tbl){
 }
 
 
-#' Count variables having all values are 0 in a tbl.
+#' Count columns having all values are 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -92,7 +92,7 @@ tbl_count_vars_zero_all <- function( tbl) {
 }
 
 
-#' Remove variables having all values are 0 in a tbl.
+#' Remove columns having all values are 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -118,7 +118,7 @@ tbl_remove_vars_zero_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get variable (names) having all values are 0 in a tbl.
+#' Get columns names having all values are 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -145,7 +145,7 @@ tbl_get_vars_zero_all <- function(tbl){
 }
 
 
-#' Subset records (rows) having all values are 0 in a tbl.
+#' Subset rows having all values are 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -171,7 +171,7 @@ tbl_keep_rows_zero_all <- function(tbl){
 
 
 
-#' Remove records having all values are 0 in a tbl.
+#' Remove rows having all values are 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -199,8 +199,7 @@ tbl_remove_rows_zero_all <- function(tbl){
 
 
 
-#' Count variables having atleast one NA
-#'
+#' Count columns having atleast one NA.
 #'
 #' @param tbl a tbl.
 #'
@@ -222,7 +221,7 @@ tbl_count_vars_NA_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Remove variables having atlease one NA
+#' Remove columns having atlease one NA
 #'
 #'
 #' @param tbl a tbl.
@@ -245,7 +244,7 @@ tbl_remove_vars_NA_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get variables names having atleast one NA
+#' Get columns names having atleast one NA.
 #'
 #'
 #' @param tbl a tbl.
@@ -269,7 +268,7 @@ tbl_get_vars_NA_any <- function(tbl){
 }
 
 
-#' Count variables having atleast one 0
+#' Count columns having atleast one 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -293,7 +292,7 @@ tbl_count_vars_zero_any <- function( tbl) {
 }
 
 
-#' Remove variables having atleast one 0
+#' Remove columns having atleast one 0
 #'
 #'
 #' @param tbl a tbl.
@@ -319,7 +318,7 @@ tbl_remove_vars_zero_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get variable (names) having atleast one 0
+#' Get columns names having atleast one 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -346,7 +345,7 @@ tbl_get_vars_zero_any <- function(tbl){
 }
 
 
-#' Subset records (rows) having atleast one 0
+#' Subset rows having atleast one 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -372,7 +371,7 @@ tbl_keep_rows_zero_any <- function(tbl){
 
 
 
-#' Remove records having atleast one 0
+#' Remove rows having atleast one 0.
 #'
 #'
 #' @param tbl a tbl.
@@ -399,7 +398,7 @@ tbl_remove_rows_zero_any <- function(tbl){
 
 
 
-#' Apply log2 on numeric variables
+#' Apply log2 on numeric columns.
 #'
 #' @param tbl a tbl
 #' @param frac a numeric value to be added before applying log2
@@ -424,7 +423,7 @@ tbl_convert_log2 <- function(tbl , frac = 0){
         tbl %>% mm(frac)
 }
 
-#' Apply log10 on numeric variables
+#' Apply log10 on numeric columns.
 #'
 #' @param tbl a tbl
 #' @param frac a numeric value to be added before applying log10
@@ -450,7 +449,7 @@ tbl_convert_log10 <- function(tbl , frac = 0){
 }
 
 
-#' Apply log on numeric variables
+#' Apply log on numeric columns.
 #'
 #' @param tbl a tbl
 #' @param base a positive number with respect to which log are computed
@@ -478,7 +477,7 @@ tbl_convert_log <- function(tbl , frac = 0, base = 2){
 }
 
 
-#' replace numeric values less than given \code{cutoff}
+#' Replace numeric values less than given 'cutoff'.
 #'
 #' @param tbl  a tbl.
 #' @param cutoff a numeric value to be used as a cutoff.
@@ -500,7 +499,7 @@ tbl_replace_less_than <- function(tbl, cutoff, replace_by ){
 }
 
 
-#' replace numeric values less than or equal given \code{cutoff}
+#' Replace numeric values less than or equal given 'cutoff'.
 #'
 #' @param tbl  a tbl.
 #' @param cutoff a numeric value to be used as a cutoff.
@@ -522,7 +521,7 @@ tbl_replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
 }
 
 
-#' replace numeric values greater than given \code{cutoff}
+#' Replace numeric values greater than given 'cutoff'.
 #'
 #' @param tbl a tbl.
 #' @param cutoff a numeric value to be used as a cutoff.
@@ -544,7 +543,7 @@ tbl_replace_greater_than <- function(tbl, cutoff, replace_by){
 }
 
 
-#' replace numeric values greater than or equal to given \code{cutoff}
+#' Replace numeric values greater than or equal to given 'cutoff'.
 #'
 #' @param tbl a tbl.
 #' @param cutoff numeric value to be used as a cutoff.
@@ -570,7 +569,7 @@ tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 
 
 
-#' remove records with less than or equal \code{cutoff} in any one of the numeric var
+#' Remove rows with less than or equal 'cutoff' in any numeric column.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -593,7 +592,7 @@ tbl_remove_less_than_or_equal_any <- function(tbl, cutoff){
 }
 
 
-#' remove records with less than or equal \code{cutoff} in all numeric var
+#' Remove rows with less than or equal 'cutoff' in all numeric columns.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -608,10 +607,10 @@ tbl_remove_less_than_or_equal_any <- function(tbl, cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_remove_less_than_or_equal_all(cutoff =4)
+#' tbl %>% tbl_remove_rows_less_than_or_equal_all(cutoff =4)
 #' }
 #'
-tbl_remove_less_than_or_equal_all <- function(tbl, cutoff){
+tbl_remove_rows_less_than_or_equal_all <- function(tbl, cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. > !!..2)) )
         tbl %>% mm(cutoff)
@@ -619,7 +618,7 @@ tbl_remove_less_than_or_equal_all <- function(tbl, cutoff){
 
 
 
-#' remove records with greater than or equal \code{cutoff} in any numeric var
+#'  Remove rows with greater than or equal 'cutoff' in any numeric column.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -644,7 +643,7 @@ tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
 }
 
 
-#' remove records with greater than or equal \code{cutoff} in all numeric var
+#' Remove rows with greater than or equal 'cutoff' in all numeric columns.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -659,10 +658,10 @@ tbl_remove_greater_than_or_equal_any <- function(tbl , cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_remove_greater_than_or_equal_all(cutoff =4)
+#' tbl %>% tbl_remove_rows_greater_than_or_equal_all(cutoff =4)
 #' }
 #'
-tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
+tbl_remove_rows_greater_than_or_equal_all <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. < !!..2)) )
         tbl %>% mm(cutoff)
@@ -670,7 +669,7 @@ tbl_remove_greater_than_or_equal_all <- function(tbl , cutoff){
 
 
 
-#' keep records with less than or equal \code{cutoff} in any numeric var
+#' Keep rows with less than or equal 'cutoff' in any numeric column.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -695,7 +694,7 @@ tbl_keep_less_than_or_equal_any <- function(tbl , cutoff){
 }
 
 
-#' keep records with less than or equal \code{cutoff} in all numeric var
+#' Keep rows with less than or equal 'cutoff' in all numeric columns.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -720,7 +719,7 @@ tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
 }
 
 
-#' keep records with greater than or equal \code{cutoff} in any numeric var
+#' Keep rows with greater than or equal 'cutoff' in any numeric column.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -735,16 +734,16 @@ tbl_keep_less_than_or_equal_all <- function(tbl , cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_keep_greater_than_or_equal_any(cutoff =4)
+#' tbl %>% tbl_keep_rows_greater_than_or_equal_any(cutoff =4)
 #' }
 #'
-tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
+tbl_keep_rows_greater_than_or_equal_any <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, any_vars(. >= !!..2)) )
         tbl %>% mm(cutoff)
 }
 
-#' keep records with greater than or equal \code{cutoff} in all numeric var
+#' Keep rows with greater than or equal 'cutoff' in all numeric columns.
 #'
 #' @param tbl a tbl
 #' @param cutoff numeric value to be used as cutoff
@@ -759,17 +758,17 @@ tbl_keep_greater_than_or_equal_any <- function(tbl , cutoff){
 #' @examples
 #' \dontrun{
 #' tbl <- tibble::tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 1:5 , w = seq(1,10,by=2))
-#' tbl %>% tbl_keep_greater_than_or_equal_all(cutoff =4)
+#' tbl %>% tbl_keep_rows_greater_than_or_equal_all(cutoff =4)
 #' }
 #'
-tbl_keep_greater_than_or_equal_all <- function(tbl , cutoff){
+tbl_keep_rows_greater_than_or_equal_all <- function(tbl , cutoff){
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")
         mm <- purrr::as_mapper(~ ..1  %>%  dplyr::filter_if(is.numeric, all_vars(. >= !!..2)) )
         tbl %>% mm(cutoff)
 }
 
 
-#' Replace all occurance of \code{pattern} in all non numeric variables. Wrapper around \code{stringr::str_replace_all()}.
+#' Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.
 #'
 #' @param tbl a tbl.
 #' @param pattern pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}
@@ -803,7 +802,7 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 }
 
 
-#' Scale numeric vars (columns).
+#' Scale numeric columns.
 #'
 #' @param tbl a tbl.
 #' @param scale TRUE  look at \code{scale} argument of function base::scale()
@@ -830,7 +829,7 @@ tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 }
 
 
-#' Scale numeric records (rows).
+#' Scale rows considering numeric columns.
 #'
 #' @param tbl a tbl.
 #' @param scale TRUE  for further details refer  \code{scale} argument of function \code{\link[base]{scale}}.
