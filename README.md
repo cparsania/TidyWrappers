@@ -16,6 +16,18 @@ observations and columns are variables. It provides handy wrapper
 functions to get, count, convert, keep, remove and replace data from
 `tbl` object.
 
+## Install
+
+Install current version of TidyWrappers on your system.
+
+``` r
+# install.packages("devtools")
+library(devtools)
+devtools::install_github("cparsania/TidyWrappers", dependencies = TRUE)
+```
+
+## Functions
+
 ### Convert tbl operations - `tbl_convert_*`
 
 `tbl_convert_*` funtions return a `tbl`. Functions apply to only numeric
@@ -43,7 +55,7 @@ tbl_count_vars_zero_any()   ## Count columns having atleast one 0.
 
 ### Get vars operations - `tbl_get_vars*`
 
-`tbl_get_vars*` functions returns a cheracter vector of column names.
+`tbl_get_vars*` functions returns a character vector of column names.
 Functions apply to both numeric and non numeric columns of a `tbl`.
 
 ``` r

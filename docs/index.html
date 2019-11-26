@@ -66,81 +66,94 @@
 
 <!-- badges: end -->
 <p>TidyWrappers is an R package to deal with an object <code>tbl</code>. Utilities given here are appropriate to use when a <code>tbl</code> has rows are features / observations and columns are variables. It provides handy wrapper functions to get, count, convert, keep, remove and replace data from <code>tbl</code> object.</p>
+<div id="install" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install" class="anchor"></a>Install</h2>
+<p>Install current version of TidyWrappers on your system.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"cparsania/TidyWrappers"</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+</div>
+<div id="functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#functions" class="anchor"></a>Functions</h2>
 <div id="convert-tbl-operations---tbl_convert_" class="section level3">
 <h3 class="hasAnchor">
 <a href="#convert-tbl-operations---tbl_convert_" class="anchor"></a>Convert tbl operations - <code>tbl_convert_*</code>
 </h3>
 <p><code>tbl_convert_*</code> funtions return a <code>tbl</code>. Functions apply to only numeric columns of a input <code>tbl</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="reference/tbl_convert_column_zscore.html">tbl_convert_column_zscore</a></span>() <span class="co">## Scale numeric columns. </span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="reference/tbl_convert_log.html">tbl_convert_log</a></span>()   <span class="co">## Apply log on numeric columns.</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="reference/tbl_convert_log10.html">tbl_convert_log10</a></span>() <span class="co">## Apply log10 on numeric columns.</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="reference/tbl_convert_log2.html">tbl_convert_log2</a></span>()  <span class="co">## Apply log2 on numeric columns.</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="reference/tbl_convert_row_zscore.html">tbl_convert_row_zscore</a></span>()    <span class="co">## Scale rows considering numeric columns.</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="reference/tbl_convert_column_zscore.html">tbl_convert_column_zscore</a></span>() <span class="co">## Scale numeric columns. </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/tbl_convert_log.html">tbl_convert_log</a></span>()   <span class="co">## Apply log on numeric columns.</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="reference/tbl_convert_log10.html">tbl_convert_log10</a></span>() <span class="co">## Apply log10 on numeric columns.</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="reference/tbl_convert_log2.html">tbl_convert_log2</a></span>()  <span class="co">## Apply log2 on numeric columns.</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="reference/tbl_convert_row_zscore.html">tbl_convert_row_zscore</a></span>()    <span class="co">## Scale rows considering numeric columns.</span></a></code></pre></div>
 </div>
 <div id="count-columns-operations---tbl_count_vars" class="section level3">
 <h3 class="hasAnchor">
 <a href="#count-columns-operations---tbl_count_vars" class="anchor"></a>Count columns operations - <code>tbl_count_vars*</code>
 </h3>
 <p><code>tbl_count_*</code> functions return a numeric value. Functions apply to both numeric and non numeric columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="reference/tbl_count_vars_NA_all.html">tbl_count_vars_NA_all</a></span>() <span class="co">## Count columns having all values are NA.</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="reference/tbl_count_vars_NA_any.html">tbl_count_vars_NA_any</a></span>() <span class="co">## Count columns having atleast one NA.</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="reference/tbl_count_vars_zero_all.html">tbl_count_vars_zero_all</a></span>()   <span class="co">## Count columns having all values are 0.</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw"><a href="reference/tbl_count_vars_zero_any.html">tbl_count_vars_zero_any</a></span>()   <span class="co">## Count columns having atleast one 0.</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/tbl_count_vars_NA_all.html">tbl_count_vars_NA_all</a></span>() <span class="co">## Count columns having all values are NA.</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/tbl_count_vars_NA_any.html">tbl_count_vars_NA_any</a></span>() <span class="co">## Count columns having atleast one NA.</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/tbl_count_vars_zero_all.html">tbl_count_vars_zero_all</a></span>()   <span class="co">## Count columns having all values are 0.</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="reference/tbl_count_vars_zero_any.html">tbl_count_vars_zero_any</a></span>()   <span class="co">## Count columns having atleast one 0.</span></a></code></pre></div>
 </div>
 <div id="get-vars-operations---tbl_get_vars" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get-vars-operations---tbl_get_vars" class="anchor"></a>Get vars operations - <code>tbl_get_vars*</code>
 </h3>
-<p><code>tbl_get_vars*</code> functions returns a cheracter vector of column names. Functions apply to both numeric and non numeric columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/tbl_get_vars_NA_all.html">tbl_get_vars_NA_all</a></span>()   <span class="co">## Get columns names having all values are NA.</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="reference/tbl_get_vars_NA_any.html">tbl_get_vars_NA_any</a></span>()   <span class="co">## Get columns names having atleast one NA.</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="reference/tbl_get_vars_zero_all.html">tbl_get_vars_zero_all</a></span>() <span class="co">## Get columns names having all values are 0.</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw"><a href="reference/tbl_get_vars_zero_any.html">tbl_get_vars_zero_any</a></span>() <span class="co">## Get columns names having atleast one 0.</span></a></code></pre></div>
+<p><code>tbl_get_vars*</code> functions returns a character vector of column names. Functions apply to both numeric and non numeric columns of a <code>tbl</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/tbl_get_vars_NA_all.html">tbl_get_vars_NA_all</a></span>()   <span class="co">## Get columns names having all values are NA.</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="reference/tbl_get_vars_NA_any.html">tbl_get_vars_NA_any</a></span>()   <span class="co">## Get columns names having atleast one NA.</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="reference/tbl_get_vars_zero_all.html">tbl_get_vars_zero_all</a></span>() <span class="co">## Get columns names having all values are 0.</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="reference/tbl_get_vars_zero_any.html">tbl_get_vars_zero_any</a></span>() <span class="co">## Get columns names having atleast one 0.</span></a></code></pre></div>
 </div>
 <div id="keep-rows-operations---tbl_keep_rows" class="section level3">
 <h3 class="hasAnchor">
 <a href="#keep-rows-operations---tbl_keep_rows" class="anchor"></a>Keep rows operations - <code>tbl_keep_rows*</code>
 </h3>
 <p><code>tbl_keep_rows*</code> functions returns a <code>tbl</code>. Functions apply to numeric columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/tbl_keep_rows_less_than_or_equal_all.html">tbl_keep_rows_less_than_or_equal_all</a></span>()  <span class="co">## Keep rows with less than or equal 'cutoff' in all numeric columns.</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="reference/tbl_keep_rows_less_than_or_equal_any.html">tbl_keep_rows_less_than_or_equal_any</a></span>()  <span class="co">## Keep rows with less than or equal 'cutoff' in any numeric column.</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="reference/tbl_keep_rows_greater_than_or_equal_all.html">tbl_keep_rows_greater_than_or_equal_all</a></span>()   <span class="co">## Keep rows with greater than or equal 'cutoff' in all numeric columns.</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw"><a href="reference/tbl_keep_rows_greater_than_or_equal_any.html">tbl_keep_rows_greater_than_or_equal_any</a></span>()   <span class="co">## Keep rows with greater than or equal 'cutoff' in any numeric column.</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="kw"><a href="reference/tbl_keep_rows_zero_all.html">tbl_keep_rows_zero_all</a></span>()    <span class="co">## Keep rows having all values are 0.</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw"><a href="reference/tbl_keep_rows_zero_any.html">tbl_keep_rows_zero_any</a></span>()    <span class="co">## Keep rows having atleast one 0.</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/tbl_keep_rows_less_than_or_equal_all.html">tbl_keep_rows_less_than_or_equal_all</a></span>()  <span class="co">## Keep rows with less than or equal 'cutoff' in all numeric columns.</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/tbl_keep_rows_less_than_or_equal_any.html">tbl_keep_rows_less_than_or_equal_any</a></span>()  <span class="co">## Keep rows with less than or equal 'cutoff' in any numeric column.</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="reference/tbl_keep_rows_greater_than_or_equal_all.html">tbl_keep_rows_greater_than_or_equal_all</a></span>()   <span class="co">## Keep rows with greater than or equal 'cutoff' in all numeric columns.</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="reference/tbl_keep_rows_greater_than_or_equal_any.html">tbl_keep_rows_greater_than_or_equal_any</a></span>()   <span class="co">## Keep rows with greater than or equal 'cutoff' in any numeric column.</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="reference/tbl_keep_rows_zero_all.html">tbl_keep_rows_zero_all</a></span>()    <span class="co">## Keep rows having all values are 0.</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="reference/tbl_keep_rows_zero_any.html">tbl_keep_rows_zero_any</a></span>()    <span class="co">## Keep rows having atleast one 0.</span></a></code></pre></div>
 </div>
 <div id="remove-rows-operations---tbl_remove_rows" class="section level3">
 <h3 class="hasAnchor">
 <a href="#remove-rows-operations---tbl_remove_rows" class="anchor"></a>Remove rows operations - <code>tbl_remove_rows*</code>
 </h3>
 <p><code>tbl_remove_rows*</code> functions returns a <code>tbl</code>. Functions apply to numeric columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/tbl_remove_rows_greater_than_or_equal_any.html">tbl_remove_rows_greater_than_or_equal_any</a></span>() <span class="co">## Remove rows with greater than or equal 'cutoff' in any numeric column.</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/tbl_remove_rows_less_than_or_equal_any.html">tbl_remove_rows_less_than_or_equal_any</a></span>()    <span class="co">## Remove rows with less than or equal 'cutoff' in any numeric column.</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="reference/tbl_remove_rows_greater_than_or_equal_all.html">tbl_remove_rows_greater_than_or_equal_all</a></span>() <span class="co">## Remove rows with greater than or equal 'cutoff' in all numeric column.</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="reference/tbl_remove_rows_less_than_or_equal_all.html">tbl_remove_rows_less_than_or_equal_all</a></span>()    <span class="co">## Remove rows with less than or equal 'cutoff' in all numeric column.</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="reference/tbl_remove_rows_zero_all.html">tbl_remove_rows_zero_all</a></span>()  <span class="co">## Remove rows having all values are 0.</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="reference/tbl_remove_rows_zero_any.html">tbl_remove_rows_zero_any</a></span>()  <span class="co">## Remove rows having atleast one 0</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/tbl_remove_rows_greater_than_or_equal_any.html">tbl_remove_rows_greater_than_or_equal_any</a></span>() <span class="co">## Remove rows with greater than or equal 'cutoff' in any numeric column.</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="reference/tbl_remove_rows_less_than_or_equal_any.html">tbl_remove_rows_less_than_or_equal_any</a></span>()    <span class="co">## Remove rows with less than or equal 'cutoff' in any numeric column.</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="reference/tbl_remove_rows_greater_than_or_equal_all.html">tbl_remove_rows_greater_than_or_equal_all</a></span>() <span class="co">## Remove rows with greater than or equal 'cutoff' in all numeric column.</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="reference/tbl_remove_rows_less_than_or_equal_all.html">tbl_remove_rows_less_than_or_equal_all</a></span>()    <span class="co">## Remove rows with less than or equal 'cutoff' in all numeric column.</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw"><a href="reference/tbl_remove_rows_zero_all.html">tbl_remove_rows_zero_all</a></span>()  <span class="co">## Remove rows having all values are 0.</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw"><a href="reference/tbl_remove_rows_zero_any.html">tbl_remove_rows_zero_any</a></span>()  <span class="co">## Remove rows having atleast one 0</span></a></code></pre></div>
 </div>
 <div id="remove-columns-operations---tbl_remove_vars" class="section level3">
 <h3 class="hasAnchor">
 <a href="#remove-columns-operations---tbl_remove_vars" class="anchor"></a>Remove columns operations - <code>tbl_remove_vars*</code>
 </h3>
 <p><code>tbl_remove_vars*</code> functions returns a <code>tbl</code>. Functions apply to numeric and non columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/tbl_remove_vars_NA_all.html">tbl_remove_vars_NA_all</a></span>()    <span class="co">## Remove columns having all values are NA.</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="reference/tbl_remove_vars_NA_any.html">tbl_remove_vars_NA_any</a></span>()    <span class="co">## Remove columns having atlease one NA</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="reference/tbl_remove_vars_zero_all.html">tbl_remove_vars_zero_all</a></span>()  <span class="co">## Remove columns having all values are 0.</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="reference/tbl_remove_vars_zero_any.html">tbl_remove_vars_zero_any</a></span>()  <span class="co">## Remove columns having atleast one 0</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/tbl_remove_vars_NA_all.html">tbl_remove_vars_NA_all</a></span>()    <span class="co">## Remove columns having all values are NA.</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="reference/tbl_remove_vars_NA_any.html">tbl_remove_vars_NA_any</a></span>()    <span class="co">## Remove columns having atlease one NA</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="reference/tbl_remove_vars_zero_all.html">tbl_remove_vars_zero_all</a></span>()  <span class="co">## Remove columns having all values are 0.</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw"><a href="reference/tbl_remove_vars_zero_any.html">tbl_remove_vars_zero_any</a></span>()  <span class="co">## Remove columns having atleast one 0</span></a></code></pre></div>
 </div>
 <div id="replace-value-operations---tbl_replace" class="section level3">
 <h3 class="hasAnchor">
 <a href="#replace-value-operations---tbl_replace" class="anchor"></a>Replace value operations - <code>tbl_replace*</code>
 </h3>
 <p><code>tbl_replace*</code> functions returns a <code>tbl</code>. Functions apply to both numeric and non numeric columns of a <code>tbl</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/tbl_replace_greater_than.html">tbl_replace_greater_than</a></span>()  <span class="co">## Replace numeric values greater than given 'cutoff'.</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="reference/tbl_replace_greater_than_or_equal.html">tbl_replace_greater_than_or_equal</a></span>() <span class="co">## Replace numeric values greater than or equal to given 'cutoff'.</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="reference/tbl_replace_less_than.html">tbl_replace_less_than</a></span>() <span class="co">## Replace numeric values less than given 'cutoff'.</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw"><a href="reference/tbl_replace_less_than_or_equal.html">tbl_replace_less_than_or_equal</a></span>()    <span class="co">## Replace numeric values less than or equal given 'cutoff'.</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="kw"><a href="reference/tbl_replace_string.html">tbl_replace_string</a></span>()    <span class="co">## Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="reference/tbl_replace_greater_than.html">tbl_replace_greater_than</a></span>()  <span class="co">## Replace numeric values greater than given 'cutoff'.</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="reference/tbl_replace_greater_than_or_equal.html">tbl_replace_greater_than_or_equal</a></span>() <span class="co">## Replace numeric values greater than or equal to given 'cutoff'.</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="reference/tbl_replace_less_than.html">tbl_replace_less_than</a></span>() <span class="co">## Replace numeric values less than given 'cutoff'.</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="reference/tbl_replace_less_than_or_equal.html">tbl_replace_less_than_or_equal</a></span>()    <span class="co">## Replace numeric values less than or equal given 'cutoff'.</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="kw"><a href="reference/tbl_replace_string.html">tbl_replace_string</a></span>()    <span class="co">## Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.</span></a></code></pre></div>
+</div>
 </div>
 </div>
   </div>
