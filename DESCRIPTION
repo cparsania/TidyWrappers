@@ -4,7 +4,7 @@ Title: TidyWrappers contains set of handy functions to deal with tbl object.
 Version: 0.0.1.9000
 Author: Chirag Parsania
 Maintainer: Chirag Parsania <chirag.parsania@gmail.com>
-Description: TidyWrappers provides set of handy functions which are wrapped around several dplyr and purrr based functions. The functions provided in TidyWrappers are useful to deal with tbl object.  
+Description: TidyWrappers is an R package to deal with an object tbl. Utilities given here are appropriate to use when a tbl has rows are features / observations and columns are variables. It provides handy wrapper functions around dplyr verbs to get, count, convert, keep, remove and replace data from tbl object.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
