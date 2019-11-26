@@ -1,7 +1,7 @@
 Package: TidyWrappers
 Type: Package
 Title: TidyWrappers contains set of handy functions to deal with tbl object. 
-Version: 0.0.0.9000
+Version: 0.0.1
 Author: Chirag Parsania
 Maintainer: Chirag Parsania <chirag.parsania@gmail.com>
 Description: TidyWrappers provides set of handy functions which are wrapped around several dplyr and purrr based functions. The functions provided in TidyWrappers are useful to deal with tbl object.  
