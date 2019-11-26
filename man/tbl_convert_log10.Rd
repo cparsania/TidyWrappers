@@ -2,20 +2,20 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_log10}
 \alias{tbl_convert_log10}
-\title{Apply log10 on numeric columns.}
+\title{Apply \code{log10()} on numeric columns / variables}
 \usage{
 tbl_convert_log10(tbl, frac = 0)
 }
 \arguments{
-\item{tbl}{a tbl}
+\item{tbl}{a tbl.}
 
-\item{frac}{a numeric value to be added before applying log10}
+\item{frac}{a numeric value to be added before applying log10.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Apply log10 on numeric columns.
+Apply \code{log10()} on numeric columns / variables from a tbl.
 }
 \examples{
 \dontrun{

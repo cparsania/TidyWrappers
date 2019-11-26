@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_remove_vars_NA_any}
 \alias{tbl_remove_vars_NA_any}
-\title{Remove columns having atlease one NA}
+\title{Remove columns / variables  having atlease one NA}
 \usage{
 tbl_remove_vars_NA_any(tbl)
 }
@@ -10,10 +10,10 @@ tbl_remove_vars_NA_any(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-an integer
+an integer.
 }
 \description{
-Remove columns having atlease one NA
+Remove columns / variables  having atlease one NA from a tbl.
 }
 \examples{
 \dontrun{

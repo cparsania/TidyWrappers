@@ -2,20 +2,20 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_keep_rows_greater_than_or_equal_all}
 \alias{tbl_keep_rows_greater_than_or_equal_all}
-\title{Keep rows with greater than or equal 'cutoff' in all numeric columns.}
+\title{Keep rows with greater than or equal  \code{'cutoff'} in all numeric columns}
 \usage{
 tbl_keep_rows_greater_than_or_equal_all(tbl, cutoff)
 }
 \arguments{
-\item{tbl}{a tbl}
+\item{tbl}{a tbl.}
 
-\item{cutoff}{numeric value to be used as cutoff}
+\item{cutoff}{numeric value to be used as  \code{'cutoff'}.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Keep rows with greater than or equal 'cutoff' in all numeric columns.
+Keep rows with greater than or equal  \code{'cutoff'} in all numeric columns from a tbl.
 }
 \examples{
 \dontrun{

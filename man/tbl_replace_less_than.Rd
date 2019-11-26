@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_replace_less_than}
 \alias{tbl_replace_less_than}
-\title{Replace numeric values less than given 'cutoff'.}
+\title{Replace numeric values less than given \code{'cutoff'}}
 \usage{
 tbl_replace_less_than(tbl, cutoff, replace_by)
 }
@@ -11,13 +11,13 @@ tbl_replace_less_than(tbl, cutoff, replace_by)
 
 \item{cutoff}{a numeric value to be used as a cutoff.}
 
-\item{replace_by}{a numeric value to be used to replace less than \code{cutoff}}
+\item{replace_by}{a numeric value to be used to replace less than \code{cutoff}.}
 }
 \value{
 a tbl.
 }
 \description{
-Replace numeric values less than given 'cutoff'.
+Replace numeric values less than given \code{'cutoff'} from a tbl.
 }
 \examples{
 \dontrun{

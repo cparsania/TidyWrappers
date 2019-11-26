@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_count_vars_NA_any}
 \alias{tbl_count_vars_NA_any}
-\title{Count columns having atleast one NA.}
+\title{Count columns / variables having atleast one NA}
 \usage{
 tbl_count_vars_NA_any(tbl)
 }
@@ -10,10 +10,10 @@ tbl_count_vars_NA_any(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-an integer
+an integer.
 }
 \description{
-Count columns having atleast one NA.
+Count columns / variables having atleast one NA from a tbl.
 }
 \examples{
 \dontrun{

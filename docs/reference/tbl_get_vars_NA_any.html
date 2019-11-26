@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get columns names having atleast one NA. — tbl_get_vars_NA_any • TidyWrappers</title>
+<title>Get column / variable names having atleast one NA — tbl_get_vars_NA_any • TidyWrappers</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Get columns names having atleast one NA. — tbl_get_vars_NA_any" />
-<meta property="og:description" content="Get columns names having atleast one NA." />
+<meta property="og:title" content="Get column / variable names having atleast one NA — tbl_get_vars_NA_any" />
+<meta property="og:description" content="Get column / variable names having atleast one NA from a tbl." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -100,13 +100,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get columns names having atleast one NA.</h1>
+    <h1>Get column / variable names having atleast one NA</h1>
     
     <div class="hidden name"><code>tbl_get_vars_NA_any.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Get columns names having atleast one NA.</p>
+    <p>Get column / variable names having atleast one NA from a tbl.</p>
     </div>
 
     <pre class="usage"><span class='fu'>tbl_get_vars_NA_any</span>(<span class='no'>tbl</span>)</pre>
@@ -122,12 +122,10 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a cheracter vector contaning variable names</p>
+    <p>a cheracter vector contaning variable names.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-
-
  <span class='no'>tbl</span> <span class='kw'>&lt;-</span> <span class='fu'>tibble</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>] , <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>NA</span> , <span class='kw'>z</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>NA</span>,<span class='fl'>5</span>) , <span class='kw'>xx</span><span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>5</span>)
  <span class='no'>tbl</span> <span class='kw'>%&gt;%</span> <span class='fu'>tbl_get_vars_NA_any</span>()
 }</div></pre>

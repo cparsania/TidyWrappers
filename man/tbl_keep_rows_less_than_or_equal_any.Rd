@@ -2,20 +2,20 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_keep_rows_less_than_or_equal_any}
 \alias{tbl_keep_rows_less_than_or_equal_any}
-\title{Keep rows with less than or equal 'cutoff' in any numeric column.}
+\title{Keep rows with less than or equal \code{'cutoff'} in any numeric column}
 \usage{
 tbl_keep_rows_less_than_or_equal_any(tbl, cutoff)
 }
 \arguments{
-\item{tbl}{a tbl}
+\item{tbl}{a tbl.}
 
-\item{cutoff}{numeric value to be used as cutoff}
+\item{cutoff}{numeric value to be used as \code{'cutoff'}.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Keep rows with less than or equal 'cutoff' in any numeric column.
+Keep rows with less than or equal \code{'cutoff'} in any numeric column from a tbl.
 }
 \examples{
 \dontrun{

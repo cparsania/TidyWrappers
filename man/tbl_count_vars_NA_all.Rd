@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_count_vars_NA_all}
 \alias{tbl_count_vars_NA_all}
-\title{Count columns having all values are NA.}
+\title{Count columns / variables having all values are NA}
 \usage{
 tbl_count_vars_NA_all(tbl)
 }
@@ -10,15 +10,13 @@ tbl_count_vars_NA_all(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-an integer
+an integer.
 }
 \description{
-Count columns having all values are NA.
+Count columns / variables having all values are NA from a tbl. \code{tbl_count_vars_NA_all()} takes care of both numeric and non-numeric values.
 }
 \examples{
 \dontrun{
-
-
  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
  tbl \%>\% tbl_count_vars_NA_all()
 }

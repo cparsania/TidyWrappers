@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_count_vars_zero_any}
 \alias{tbl_count_vars_zero_any}
-\title{Count columns having atleast one 0.}
+\title{Count columns / variables having atleast one 0}
 \usage{
 tbl_count_vars_zero_any(tbl)
 }
@@ -10,10 +10,10 @@ tbl_count_vars_zero_any(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-an integer
+an integer.
 }
 \description{
-Count columns having atleast one 0.
+Count columns / variables having atleast one 0 from a tbl.
 }
 \examples{
 \dontrun{

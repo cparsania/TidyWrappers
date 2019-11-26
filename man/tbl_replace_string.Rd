@@ -2,22 +2,22 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_replace_string}
 \alias{tbl_replace_string}
-\title{Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.}
+\title{Wrapper around \code{stringr::str_replace_all()}}
 \usage{
 tbl_replace_string(tbl, pattern, replacement)
 }
 \arguments{
 \item{tbl}{a tbl.}
 
-\item{pattern}{pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}}
+\item{pattern}{pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}.}
 
-\item{replacement}{a character vector of replacements. Will be passed to argument \code{replacement} to function \code{stringr::str_replace_all()}}
+\item{replacement}{a character vector of replacements. Will be passed to argument \code{replacement} to function \code{stringr::str_replace_all()}.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.
+Replace all occurance of \code{'pattern'} in all non numeric columns from a tbl.
 }
 \examples{
 

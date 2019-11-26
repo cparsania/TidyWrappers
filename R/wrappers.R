@@ -1,17 +1,16 @@
-#' Count columns having all values are NA.
+#' Count columns / variables having all values are NA
 #'
+#' Count columns / variables having all values are NA from a tbl. \code{tbl_count_vars_NA_all()} takes care of both numeric and non-numeric values.
 #'
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'
-#'
 #'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
 #'  tbl %>% tbl_count_vars_NA_all()
 #' }
@@ -21,20 +20,18 @@ tbl_count_vars_NA_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Remove columns having all values are NA.
+#' Remove columns / variables having all values are NA
 #'
-#'
+#' Remove columns / variables having all values are NA from a tbl. \code{tbl_remove_vars_NA_all()} takes care of both  numeric and non numeric columns.
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'
-#'
 #'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
 #'  tbl %>% tbl_remove_vars_NA_all()
 #' }
@@ -44,20 +41,19 @@ tbl_remove_vars_NA_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get columns names having all values are NA.
+#' Get column / variable names having all values are NA
 #'
+#' Get column / variable names having all valus are NA from a tbl. \code{tbl_get_vars_NA_all()} takes care of both numeric and non numeric columns.
 #'
 #' @param tbl a tbl.
 #'
-#' @return a cheracter vector contaning variable names
+#' @return a cheracter vector contaning variable names.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'
-#'
 #'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
 #'  tbl %>% tbl_get_vars_NA_all()
 #' }
@@ -68,20 +64,19 @@ tbl_get_vars_NA_all <- function(tbl){
 }
 
 
-#' Count columns having all values are 0.
+#' Count columns / variables having all values are 0
 #'
+#' Count columns / variables having all values are 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'
-#'
 #'  tbl <- tibble(x = letters[1:5] , y = LETTERS[1:5] , z = 0 )
 #'  tbl %>% tbl_count_vars_zero_all()
 #' }
@@ -92,8 +87,9 @@ tbl_count_vars_zero_all <- function( tbl) {
 }
 
 
-#' Remove columns having all values are 0.
+#' Remove columns / variables having all values are 0
 #'
+#' Remove columns / variables having all values are 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
@@ -118,12 +114,13 @@ tbl_remove_vars_zero_all <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get columns names having all values are 0.
+#' Get column / variable names having all values are 0
 #'
+#' Get column / variable names having all values are 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return a cheracter vector contaning variable names
+#' @return a cheracter vector of column / variable names.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr select_if
 #' @export
@@ -145,8 +142,9 @@ tbl_get_vars_zero_all <- function(tbl){
 }
 
 
-#' Subset rows having all values are 0.
+#' Subset rows having all values are 0
 #'
+#' Subset rows having all values are 0 across all numeric columns / variables from a tbl.
 #'
 #' @param tbl a tbl.
 #'
@@ -173,7 +171,7 @@ tbl_keep_rows_zero_all <- function(tbl){
 
 #' Remove rows having all values are 0.
 #'
-#'
+#' Remove rows having all values are 0 across all numeric columns / variables from a tbl.
 #' @param tbl a tbl.
 #'
 #' @return a tbl.
@@ -199,11 +197,13 @@ tbl_remove_rows_zero_all <- function(tbl){
 
 
 
-#' Count columns having atleast one NA.
+#' Count columns / variables having atleast one NA
+#'
+#' Count columns / variables having atleast one NA from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
@@ -221,12 +221,13 @@ tbl_count_vars_NA_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Remove columns having atlease one NA
+#' Remove columns / variables  having atlease one NA
 #'
+#' Remove columns / variables  having atlease one NA from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
@@ -244,20 +245,18 @@ tbl_remove_vars_NA_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get columns names having atleast one NA.
+#' Get column / variable names having atleast one NA
 #'
-#'
+#' Get column / variable names having atleast one NA from a tbl.
 #' @param tbl a tbl.
 #'
-#' @return a cheracter vector contaning variable names
+#' @return a cheracter vector contaning variable names.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'
-#'
 #'  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) , xx= 1:5)
 #'  tbl %>% tbl_get_vars_NA_any()
 #' }
@@ -268,12 +267,13 @@ tbl_get_vars_NA_any <- function(tbl){
 }
 
 
-#' Count columns having atleast one 0.
+#' Count columns / variables having atleast one 0
 #'
+#' Count columns / variables having atleast one 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return an integer
+#' @return an integer.
 #' @importFrom purrr as_mapper
 #' @importFrom tibble is_tibble
 #' @export
@@ -292,8 +292,9 @@ tbl_count_vars_zero_any <- function( tbl) {
 }
 
 
-#' Remove columns having atleast one 0
+#' Remove columns / variables having atleast one 0
 #'
+#' Remove columns / variables having atleast one 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
@@ -318,12 +319,13 @@ tbl_remove_vars_zero_any <- function(tbl){
         tbl %>% mm()
 }
 
-#' Get columns names having atleast one 0.
+#' Get columns names having atleast one 0
 #'
+#' Get column / variable names having atleast one 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
-#' @return a cheracter vector contaning variable names
+#' @return a cheracter vector contaning variable names.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr select_if
 #' @export
@@ -345,8 +347,9 @@ tbl_get_vars_zero_any <- function(tbl){
 }
 
 
-#' Subset rows having atleast one 0.
+#' Subset rows having atleast one 0
 #'
+#' Subset rows having atleast one 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
@@ -371,8 +374,9 @@ tbl_keep_rows_zero_any <- function(tbl){
 
 
 
-#' Remove rows having atleast one 0.
+#' Remove rows having atleast one 0
 #'
+#' Remove rows having atleast one 0 from a tbl.
 #'
 #' @param tbl a tbl.
 #'
@@ -398,13 +402,15 @@ tbl_remove_rows_zero_any <- function(tbl){
 
 
 
-#' Apply log2 on numeric columns.
+#' Apply \code{log2()} on numeric columns / variables
 #'
-#' @param tbl a tbl
-#' @param frac a numeric value to be added before applying log2
+#' Apply \code{log2()} on numeric columns / variables from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param frac a numeric value to be added before applying log2.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -423,13 +429,15 @@ tbl_convert_log2 <- function(tbl , frac = 0){
         tbl %>% mm(frac)
 }
 
-#' Apply log10 on numeric columns.
+#' Apply \code{log10()} on numeric columns / variables
 #'
-#' @param tbl a tbl
-#' @param frac a numeric value to be added before applying log10
+#' Apply \code{log10()} on numeric columns / variables from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param frac a numeric value to be added before applying log10.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -449,15 +457,18 @@ tbl_convert_log10 <- function(tbl , frac = 0){
 }
 
 
-#' Apply log on numeric columns.
+#' Apply \code{log()} on numeric columns / variables
 #'
-#' @param tbl a tbl
-#' @param base a positive number with respect to which log are computed
-#' @param frac a numeric value to be added before applying log
+#' Apply \code{log()} on numeric columns / variables from a tbl.
+#'
+#'
+#' @param tbl a tbl.
+#' @param base a positive number with respect to which log are computed.
+#' @param frac a numeric value to be added before applying log.
 #'
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -477,11 +488,13 @@ tbl_convert_log <- function(tbl , frac = 0, base = 2){
 }
 
 
-#' Replace numeric values less than given 'cutoff'.
+#' Replace numeric values less than given \code{'cutoff'}
+#'
+#' Replace numeric values less than given \code{'cutoff'} from a tbl.
 #'
 #' @param tbl  a tbl.
 #' @param cutoff a numeric value to be used as a cutoff.
-#' @param replace_by a numeric value to be used to replace less than \code{cutoff}
+#' @param replace_by a numeric value to be used to replace less than \code{cutoff}.
 #'
 #' @return a tbl.
 #' @export
@@ -499,10 +512,12 @@ tbl_replace_less_than <- function(tbl, cutoff, replace_by ){
 }
 
 
-#' Replace numeric values less than or equal given 'cutoff'.
+#' Replace numeric values less than or equal given '\code{'cutoff'}
+#'
+#' Replace numeric values less than or equal given '\code{'cutoff'} from a tbl.
 #'
 #' @param tbl  a tbl.
-#' @param cutoff a numeric value to be used as a cutoff.
+#' @param cutoff a numeric value to be used as a \code{'cutoff'}.
 #' @param replace_by a numeric value to be used to replace less than or equal \code{cutoff}
 #'
 #' @return a tbl.
@@ -521,11 +536,13 @@ tbl_replace_less_than_or_equal <- function(tbl, cutoff, replace_by ){
 }
 
 
-#' Replace numeric values greater than given 'cutoff'.
+#' Replace numeric values greater than given \code{'cutoff'}
+#'
+#' Replace numeric values less than or equal given \code{'cutoff'} from a tbl.
 #'
 #' @param tbl a tbl.
-#' @param cutoff a numeric value to be used as a cutoff.
-#' @param replace_by a numeric value to be used to replace greater than \code{cutoff}
+#' @param cutoff a numeric value to be used as a \code{'cutoff'}.
+#' @param replace_by a numeric value to be used to replace greater than \code{'cutoff'}.
 #'
 #' @return a tbl.
 #' @export
@@ -543,11 +560,13 @@ tbl_replace_greater_than <- function(tbl, cutoff, replace_by){
 }
 
 
-#' Replace numeric values greater than or equal to given 'cutoff'.
+#' Replace numeric values greater than or equal to given \code{'cutoff'}
+#'
+#' Replace numeric values greater than or equal to given \code{'cutoff'} from a tbl.
 #'
 #' @param tbl a tbl.
-#' @param cutoff numeric value to be used as a cutoff.
-#' @param replace_by a numeric value to be used to replace greater than or equal \code{cutoff}
+#' @param cutoff numeric value to be used as a \code{'cutoff'}.
+#' @param replace_by a numeric value to be used to replace greater than or equal \code{'cutoff'}.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
 #' @return a tbl.
@@ -569,14 +588,16 @@ tbl_replace_greater_than_or_equal <- function(tbl, cutoff, replace_by){
 
 
 
-#' Remove rows with less than or equal 'cutoff' in any numeric column.
+#' Remove rows with less than or equal \code{'cutoff'} in any numeric column
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Remove rows with less than or equal \code{'cutoff'} in any numeric column from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as \code{'cutoff'}.
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -591,17 +612,18 @@ tbl_remove_rows_less_than_or_equal_any <- function(tbl, cutoff){
        tbl %>% mm(cutoff)
 }
 
-
-#' Remove rows with less than or equal 'cutoff' in all numeric columns.
+#' Remove rows with less than or equal \code{'cutoff'} in all numeric columns
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Remove rows with less than or equal \code{'cutoff'} in all numeric columns from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as \code{'cutoff'}.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -618,16 +640,18 @@ tbl_remove_rows_less_than_or_equal_all <- function(tbl, cutoff){
 
 
 
-#'  Remove rows with greater than or equal 'cutoff' in any numeric column.
+#' Remove rows with greater than or equal \code{'cutoff'} in any numeric column
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Remove rows with greater than or equal \code{'cutoff'} in any numeric column from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as \code{'cutoff'}.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -643,16 +667,18 @@ tbl_remove_rows_greater_than_or_equal_any <- function(tbl , cutoff){
 }
 
 
-#' Remove rows with greater than or equal 'cutoff' in all numeric columns.
+#' Remove rows with greater than or equal \code{'cutoff'} in all numeric columns
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Remove rows with greater than or equal \code{'cutoff'} in all numeric columns from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as \code{'cutoff'}.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -669,16 +695,18 @@ tbl_remove_rows_greater_than_or_equal_all <- function(tbl , cutoff){
 
 
 
-#' Keep rows with less than or equal 'cutoff' in any numeric column.
+#' Keep rows with less than or equal \code{'cutoff'} in any numeric column
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Keep rows with less than or equal \code{'cutoff'} in any numeric column from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as \code{'cutoff'}.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -694,10 +722,12 @@ tbl_keep_rows_less_than_or_equal_any <- function(tbl , cutoff){
 }
 
 
-#' Keep rows with less than or equal 'cutoff' in all numeric columns.
+#' Keep rows with less than or equal \code{'cutoff'} in all numeric columns
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Keep rows with less than or equal \code{'cutoff'} in all numeric columns from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as cutoff.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
@@ -719,16 +749,18 @@ tbl_keep_rows_less_than_or_equal_all <- function(tbl , cutoff){
 }
 
 
-#' Keep rows with greater than or equal 'cutoff' in any numeric column.
+#' Keep rows with greater than or equal \code{'cutoff'} in any numeric column
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Keep rows with greater than or equal \code{'cutoff'} in any numeric column from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as cutoff.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -743,16 +775,18 @@ tbl_keep_rows_greater_than_or_equal_any <- function(tbl , cutoff){
         tbl %>% mm(cutoff)
 }
 
-#' Keep rows with greater than or equal 'cutoff' in all numeric columns.
+#' Keep rows with greater than or equal  \code{'cutoff'} in all numeric columns
 #'
-#' @param tbl a tbl
-#' @param cutoff numeric value to be used as cutoff
+#' Keep rows with greater than or equal  \code{'cutoff'} in all numeric columns from a tbl.
+#'
+#' @param tbl a tbl.
+#' @param cutoff numeric value to be used as  \code{'cutoff'}.
 #'
 #' @importFrom dplyr filter_if
 #' @importFrom dplyr any_vars
 #' @importFrom purrr as_mapper
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #'
 #' @examples
@@ -768,13 +802,15 @@ tbl_keep_rows_greater_than_or_equal_all <- function(tbl , cutoff){
 }
 
 
-#' Replace all occurance of 'pattern' in all non numeric columns. Wrapper around 'stringr::str_replace_all()'.
+#' Wrapper around \code{stringr::str_replace_all()}
+#'
+#' Replace all occurance of \code{'pattern'} in all non numeric columns from a tbl.
 #'
 #' @param tbl a tbl.
-#' @param pattern pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}
-#' @param replacement a character vector of replacements. Will be passed to argument \code{replacement} to function \code{stringr::str_replace_all()}
+#' @param pattern pattern to look for. Will be passed to argument \code{pattern} to function \code{stringr::str_replace_all()}.
+#' @param replacement a character vector of replacements. Will be passed to argument \code{replacement} to function \code{stringr::str_replace_all()}.
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
 #' @importFrom stringr str_replace_all
@@ -802,13 +838,15 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 }
 
 
-#' Scale numeric columns.
+#' Scale numeric columns
+#'
+#' Scale numeric columns from a tbl. It uses \code{base::scale()} to scale the numeric vector.
 #'
 #' @param tbl a tbl.
-#' @param scale TRUE  look at \code{scale} argument of function base::scale()
-#' @param center TRUE look at \code{center} argument of function base::scale()
+#' @param scale TRUE  look at \code{scale} argument of function base::scale().
+#' @param center TRUE look at \code{center} argument of function base::scale().
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if
@@ -829,14 +867,16 @@ tbl_convert_column_zscore <- function(tbl, scale = TRUE, center = TRUE){
 }
 
 
-#' Scale rows considering numeric columns.
+#' Scale rows
+#'
+#' Scale rows considering numeric columns from a tbl.
 #'
 #' @param tbl a tbl.
 #' @param scale TRUE  for further details refer  \code{scale} argument of function \code{\link[base]{scale}}.
-#'   base::scale()
+#'   base::scale().
 #' @param center TRUE for further details refer \code{center} argument of function \code{\link[base]{scale}}.
 #'
-#' @return a tbl
+#' @return a tbl.
 #' @export
 #' @importFrom purrr as_mapper
 #' @importFrom dplyr mutate_if

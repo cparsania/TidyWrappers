@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_row_zscore}
 \alias{tbl_convert_row_zscore}
-\title{Scale rows considering numeric columns.}
+\title{Scale rows}
 \usage{
 tbl_convert_row_zscore(tbl, scale = TRUE, center = TRUE)
 }
@@ -10,15 +10,15 @@ tbl_convert_row_zscore(tbl, scale = TRUE, center = TRUE)
 \item{tbl}{a tbl.}
 
 \item{scale}{TRUE  for further details refer  \code{scale} argument of function \code{\link[base]{scale}}.
-base::scale()}
+base::scale().}
 
 \item{center}{TRUE for further details refer \code{center} argument of function \code{\link[base]{scale}}.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Scale rows considering numeric columns.
+Scale rows considering numeric columns from a tbl.
 }
 \examples{
 \dontrun{

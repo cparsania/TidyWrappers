@@ -2,22 +2,22 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_log}
 \alias{tbl_convert_log}
-\title{Apply log on numeric columns.}
+\title{Apply \code{log()} on numeric columns / variables}
 \usage{
 tbl_convert_log(tbl, frac = 0, base = 2)
 }
 \arguments{
-\item{tbl}{a tbl}
+\item{tbl}{a tbl.}
 
-\item{frac}{a numeric value to be added before applying log}
+\item{frac}{a numeric value to be added before applying log.}
 
-\item{base}{a positive number with respect to which log are computed}
+\item{base}{a positive number with respect to which log are computed.}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Apply log on numeric columns.
+Apply \code{log()} on numeric columns / variables from a tbl.
 }
 \examples{
 \dontrun{

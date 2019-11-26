@@ -13,7 +13,7 @@ tbl_remove_rows_zero_all(tbl)
 a tbl.
 }
 \description{
-Remove rows having all values are 0.
+Remove rows having all values are 0 across all numeric columns / variables from a tbl.
 }
 \examples{
 

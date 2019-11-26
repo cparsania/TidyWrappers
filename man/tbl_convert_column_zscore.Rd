@@ -2,22 +2,22 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_convert_column_zscore}
 \alias{tbl_convert_column_zscore}
-\title{Scale numeric columns.}
+\title{Scale numeric columns}
 \usage{
 tbl_convert_column_zscore(tbl, scale = TRUE, center = TRUE)
 }
 \arguments{
 \item{tbl}{a tbl.}
 
-\item{scale}{TRUE  look at \code{scale} argument of function base::scale()}
+\item{scale}{TRUE  look at \code{scale} argument of function base::scale().}
 
-\item{center}{TRUE look at \code{center} argument of function base::scale()}
+\item{center}{TRUE look at \code{center} argument of function base::scale().}
 }
 \value{
-a tbl
+a tbl.
 }
 \description{
-Scale numeric columns.
+Scale numeric columns from a tbl. It uses \code{base::scale()} to scale the numeric vector.
 }
 \examples{
 \dontrun{

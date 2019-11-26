@@ -2,22 +2,22 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_replace_greater_than}
 \alias{tbl_replace_greater_than}
-\title{Replace numeric values greater than given 'cutoff'.}
+\title{Replace numeric values greater than given \code{'cutoff'}}
 \usage{
 tbl_replace_greater_than(tbl, cutoff, replace_by)
 }
 \arguments{
 \item{tbl}{a tbl.}
 
-\item{cutoff}{a numeric value to be used as a cutoff.}
+\item{cutoff}{a numeric value to be used as a \code{'cutoff'}.}
 
-\item{replace_by}{a numeric value to be used to replace greater than \code{cutoff}}
+\item{replace_by}{a numeric value to be used to replace greater than \code{'cutoff'}.}
 }
 \value{
 a tbl.
 }
 \description{
-Replace numeric values greater than given 'cutoff'.
+Replace numeric values less than or equal given \code{'cutoff'} from a tbl.
 }
 \examples{
 \dontrun{

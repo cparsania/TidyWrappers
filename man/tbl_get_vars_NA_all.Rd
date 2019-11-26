@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_get_vars_NA_all}
 \alias{tbl_get_vars_NA_all}
-\title{Get columns names having all values are NA.}
+\title{Get column / variable names having all values are NA}
 \usage{
 tbl_get_vars_NA_all(tbl)
 }
@@ -10,15 +10,13 @@ tbl_get_vars_NA_all(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-a cheracter vector contaning variable names
+a cheracter vector contaning variable names.
 }
 \description{
-Get columns names having all values are NA.
+Get column / variable names having all valus are NA from a tbl. \code{tbl_get_vars_NA_all()} takes care of both numeric and non numeric columns.
 }
 \examples{
 \dontrun{
-
-
  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) )
  tbl \%>\% tbl_get_vars_NA_all()
 }

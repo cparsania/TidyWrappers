@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.R
 \name{tbl_get_vars_NA_any}
 \alias{tbl_get_vars_NA_any}
-\title{Get columns names having atleast one NA.}
+\title{Get column / variable names having atleast one NA}
 \usage{
 tbl_get_vars_NA_any(tbl)
 }
@@ -10,15 +10,13 @@ tbl_get_vars_NA_any(tbl)
 \item{tbl}{a tbl.}
 }
 \value{
-a cheracter vector contaning variable names
+a cheracter vector contaning variable names.
 }
 \description{
-Get columns names having atleast one NA.
+Get column / variable names having atleast one NA from a tbl.
 }
 \examples{
 \dontrun{
-
-
  tbl <- tibble(x = letters[1:5] , y = NA , z = c(1,2,3,NA,5) , xx= 1:5)
  tbl \%>\% tbl_get_vars_NA_any()
 }
