@@ -32,8 +32,7 @@ badger::badge_lifecycle()
 
 <!-- badges: end -->
 
-TidyWrappers is an R package to deal with an object `tbl`. Utilities given here are appropriate to use when a `tbl` has rows are features / observations and columns are variables. It provides handy wrapper functions around `dplyr` verbs to get, count, convert, keep, remove and replace data from `tbl` object.  
-
+TidyWrappers is an R package to deal with an object `tbl`. Utilities given here are appropriate to use when a `tbl` has rows are features / observations and columns are variables. It provides handy wrapper functions on top of `dplyr` verbs to get, count, convert, keep, remove and replace data from a `tbl` object.  
 
 
 ## Motivation
@@ -41,6 +40,7 @@ TidyWrappers is an R package to deal with an object `tbl`. Utilities given here 
 The way R is being used, has changed drastically in last few years due to the availability of [`tidyverse`](https://www.tidyverse.org/packages/){target="_blank"} and more specifically [`dplyr`](https://dplyr.tidyverse.org){target="_blank"} (all credits to [Hadley Wickham](http://hadley.nz) and [RStudio](https://rstudio.com) team). Rich documentation, stable release and excellent functionalities of these packages have provoked significant number of R users to switch from traditional `dataframes` to intelligible data structure, `tibble` (aka `tbl`). `dplyr` provides users with rich utilities like `select`, `mutate`, `filter`, `group_by` , `summarise` and `arrange` for easy manipulation of a `tibble`.  However, for newbie it takes a while to become familiar with `tidy data` and `dplyr` core and helper functions.  
 
 `TidyWrappers` contains set of functions, which save you little from writing and implementing  core `dplyr` verbs while manipulating data from `tbl`. Additionaly, redundant lines of code can be avoided using functions given in `TidyWrappers`.  There are more than 30 functions implemented in `TidyWrappers`, which wrap various `dplyr` functions internally. See examples below.
+
 
 ```{r}
   tbl <- tibble::tibble(a = letters[1:6],x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )

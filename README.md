@@ -15,8 +15,8 @@
 TidyWrappers is an R package to deal with an object `tbl`. Utilities
 given here are appropriate to use when a `tbl` has rows are features /
 observations and columns are variables. It provides handy wrapper
-functions around `dplyr` verbs to get, count, convert, keep, remove and
-replace data from `tbl` object.
+functions on top of `dplyr` verbs to get, count, convert, keep, remove
+and replace data from a `tbl` object.
 
 ## Motivation
 

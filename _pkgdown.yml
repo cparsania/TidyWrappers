@@ -1,1 +1,65 @@
 destination: docs
+development:
+  mode: auto
+template:
+  params:
+    docsearch:
+      api_key: API_KEY
+      index_name: INDEX_NAME
+reference:
+  - title: "tbl_convert_*"
+    desc: ">"
+    contents:
+      - tbl_convert_column_zscore
+      - tbl_convert_log
+      - tbl_convert_log10
+      - tbl_convert_log2
+      - tbl_convert_row_zscore
+  - title: "tbl_count_vars_*"
+    desc: ">"
+    contents:
+      - tbl_count_vars_NA_all
+      - tbl_count_vars_NA_any
+      - tbl_count_vars_zero_all
+      - tbl_count_vars_zero_any
+  - title: "tbl_get_vars_*"
+    desc: ">"
+    contents:
+      - tbl_get_vars_NA_all
+      - tbl_get_vars_NA_any
+      - tbl_get_vars_zero_all
+      - tbl_get_vars_zero_any
+  - title: "tbl_keep_rows_*"
+    desc: ">"
+    contents:
+      - tbl_keep_rows_less_than_or_equal_all
+      - tbl_keep_rows_less_than_or_equal_any
+      - tbl_keep_rows_greater_than_or_equal_all
+      - tbl_keep_rows_greater_than_or_equal_any
+      - tbl_keep_rows_zero_all
+      - tbl_keep_rows_zero_any
+  - title: "tbl_remove_rows_*"
+    desc: ">"
+    contents:
+      - tbl_remove_rows_greater_than_or_equal_any
+      - tbl_remove_rows_less_than_or_equal_any
+      - tbl_remove_rows_greater_than_or_equal_all
+      - tbl_remove_rows_less_than_or_equal_all
+      - tbl_remove_rows_zero_all
+      - tbl_remove_rows_zero_any
+  - title: "tbl_remove_vars_*"
+    desc: ">"
+    contents:
+      - tbl_remove_vars_NA_all
+      - tbl_remove_vars_NA_any
+      - tbl_remove_vars_zero_all
+      - tbl_remove_vars_zero_any
+  - title: "tbl_replace_*"
+    desc: ">"
+    contents:
+      - tbl_replace_greater_than
+      - tbl_replace_greater_than_or_equal
+      - tbl_replace_less_than
+      - tbl_replace_less_than_or_equal
+      - tbl_replace_string
+
