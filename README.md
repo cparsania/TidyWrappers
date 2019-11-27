@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- load libraries -->
+
 # TidyWrappers
 
 <!-- badges: start -->
@@ -15,6 +17,87 @@ given here are appropriate to use when a `tbl` has rows are features /
 observations and columns are variables. It provides handy wrapper
 functions around `dplyr` verbs to get, count, convert, keep, remove and
 replace data from `tbl` object.
+
+## Motivation
+
+The way R is being used, has changed drastically in last few years due
+to the availability of
+[`tidyverse`](https://www.tidyverse.org/packages/) and more specifically
+[`dplyr`](https://dplyr.tidyverse.org) (all credits to [Hadley
+Wickham](http://hadley.nz) and [RStudio](https://rstudio.com) team).
+Rich documentation, stable release and excellent functionalities of
+these packages have provoked significant number of R users to switch
+from traditional `dataframes` to intelligible data structure, `tibble`
+(aka `tbl`). `dplyr` provides users with rich utilities like `select`,
+`mutate`, `filter`, `group_by` , `summarise` and `arrange` for easy
+manipulation of a `tibble`. However, for newbie it takes a while to
+become familiar with `tidy data` and `dplyr` core and helper functions.
+
+`TidyWrappers` contains set of functions, which save you little from
+writing and implementing core `dplyr` verbs while manipulating data from
+`tbl`. Additionaly, redundant lines of code can be avoided using
+functions given in `TidyWrappers`. There are more than 30 functions
+implemented in `TidyWrappers`, which wrap various `dplyr` functions
+internally. See examples
+below.
+
+``` r
+  tbl <- tibble::tibble(a = letters[1:6],x = c(0,1,2,0,3,5) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
+  tbl
+#> # A tibble: 6 x 4
+#>   a         x     y     z
+#>   <chr> <dbl> <dbl> <dbl>
+#> 1 a         0     0     0
+#> 2 b         1     1     1
+#> 3 c         2     2     2
+#> 4 d         0     0     0
+#> 5 e         3     3     3
+#> 6 f         5     5     5
+  
+  ## keep rows having  0 across all numeric columns. 
+  
+  # using dplyr
+  
+  tbl %>% dplyr::filter_if(is.numeric , dplyr::any_vars( . == 0) )
+#> # A tibble: 2 x 4
+#>   a         x     y     z
+#>   <chr> <dbl> <dbl> <dbl>
+#> 1 a         0     0     0
+#> 2 d         0     0     0
+  
+  # using TidyWrappers
+  
+  tbl %>% tbl_keep_rows_zero_any()
+#> # A tibble: 2 x 4
+#>   a         x     y     z
+#>   <chr> <dbl> <dbl> <dbl>
+#> 1 a         0     0     0
+#> 2 d         0     0     0
+
+  ## remove rows having  0 across all numeric columns. 
+  
+  # using dplyr 
+  
+  tbl %>% dplyr::filter_if(is.numeric , dplyr::any_vars( . > 0) )
+#> # A tibble: 4 x 4
+#>   a         x     y     z
+#>   <chr> <dbl> <dbl> <dbl>
+#> 1 b         1     1     1
+#> 2 c         2     2     2
+#> 3 e         3     3     3
+#> 4 f         5     5     5
+  
+  # using TidyWrappers 
+  
+  tbl %>% TidyWrappers::tbl_remove_rows_zero_any()
+#> # A tibble: 4 x 4
+#>   a         x     y     z
+#>   <chr> <dbl> <dbl> <dbl>
+#> 1 b         1     1     1
+#> 2 c         2     2     2
+#> 3 e         3     3     3
+#> 4 f         5     5     5
+```
 
 ## Install
 
