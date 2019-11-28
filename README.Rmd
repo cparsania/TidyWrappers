@@ -55,7 +55,11 @@ devtools::install_github("cparsania/TidyWrappers", dependencies = TRUE)
 
 
 ## Examples 
-```{r}
+```{r , message=FALSE}
+library(dplyr)
+library(TidyWrappers)
+library(magrittr)
+
   tbl <- tibble::tibble(a = letters[1:6], b = NA_character_, x = c(0,1,2,0,0,NA) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
   tbl
   
@@ -65,7 +69,7 @@ devtools::install_github("cparsania/TidyWrappers", dependencies = TRUE)
   tbl %>% dplyr::filter_if(is.numeric , dplyr::all_vars( . == 0) )
   
   # using TidyWrappers
-  tbl %>% tbl_keep_rows_zero_all()
+  tbl %>% TidyWrappers::tbl_keep_rows_zero_all()
 
   ## remove rows having  0 across all numeric columns. 
   

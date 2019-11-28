@@ -53,6 +53,10 @@ devtools::install_github("cparsania/TidyWrappers", dependencies = TRUE)
 ## Examples
 
 ``` r
+library(dplyr)
+library(TidyWrappers)
+library(magrittr)
+
   tbl <- tibble::tibble(a = letters[1:6], b = NA_character_, x = c(0,1,2,0,0,NA) , y = c(0,1,2,0,3,5) , z = c(0,1,2,0,3,5) )
   tbl
 #> # A tibble: 6 x 5
@@ -76,7 +80,7 @@ devtools::install_github("cparsania/TidyWrappers", dependencies = TRUE)
 #> 2 d     <NA>      0     0     0
   
   # using TidyWrappers
-  tbl %>% tbl_keep_rows_zero_all()
+  tbl %>% TidyWrappers::tbl_keep_rows_zero_all()
 #> # A tibble: 2 x 5
 #>   a     b         x     y     z
 #>   <chr> <chr> <dbl> <dbl> <dbl>
