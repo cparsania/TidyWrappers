@@ -3,8 +3,8 @@ development:
 template:
   params:
     docsearch:
-      api_key: API_KEY
-      index_name: INDEX_NAME
+      api_key: '6db2c470d1d74c7ea300df678442b4e5'
+      index_name: 'tidywrappers'
 reference:
   - title: "tbl_convert_*"
     desc: ">"
