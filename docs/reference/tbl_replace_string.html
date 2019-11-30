@@ -118,7 +118,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Wrapper around <code>stringr::str_replace_all()</code></h1>
-    <small class="dont-index">Source: <a href='https://github.com/cparsania/TidyWrappers/blob/master/R/wrappers.R'><code>R/wrappers.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/cparsania/TidyWrappers/blob/master/R/tbl_replace.R'><code>R/tbl_replace.R</code></a></small>
     <div class="hidden name"><code>tbl_replace_string.Rd</code></div>
     </div>
 
@@ -137,11 +137,11 @@
     </tr>
     <tr>
       <th>pattern</th>
-      <td><p>pattern to look for. Will be passed to argument <code>pattern</code> to function <code><a href='https://stringr.tidyverse.org/reference/str_replace.html'>stringr::str_replace_all()</a></code>.</p></td>
+      <td><p>pattern to look for. Will be passed to argument <code>pattern</code> to function <code><a href='https://rdrr.io/pkg/stringr/man/str_replace.html'>stringr::str_replace_all()</a></code>.</p></td>
     </tr>
     <tr>
       <th>replacement</th>
-      <td><p>a character vector of replacements. Will be passed to argument <code>replacement</code> to function <code><a href='https://stringr.tidyverse.org/reference/str_replace.html'>stringr::str_replace_all()</a></code>.</p></td>
+      <td><p>a character vector of replacements. Will be passed to argument <code>replacement</code> to function <code><a href='https://rdrr.io/pkg/stringr/man/str_replace.html'>stringr::str_replace_all()</a></code>.</p></td>
     </tr>
     </table>
 
@@ -155,7 +155,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
- <span class='no'>tbl</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tibble</span><span class='kw ns'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>] ,<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>] ) ,
+ <span class='no'>tbl</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>tibble</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/tibble/man/tibble.html'>tibble</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>] ,<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>5</span>] ) ,
          <span class='kw'>y</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>5</span>],<span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>5</span>]) , <span class='kw'>z</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10</span> )
  <span class='no'>tbl</span> <span class='kw'>%&gt;%</span> <span class='fu'>tbl_replace_string</span>(<span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>"a"</span> , <span class='kw'>replacement</span> <span class='kw'>=</span> <span class='st'>"a_changed"</span>)
  <span class='no'>tbl</span> <span class='kw'>%&gt;%</span> <span class='fu'>tbl_replace_string</span>(<span class='st'>"[aeiou]"</span>, <span class='no'>toupper</span>)
