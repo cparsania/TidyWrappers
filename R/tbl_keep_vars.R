@@ -50,6 +50,7 @@ tbl_keep_vars_zero_all <- function(tbl){
 #' Keep columns / variables  having atlease one NA
 #'
 #' Keep columns / variables  having atlease one NA from a tbl. \code{tbl_keep_vars_NA_any()} takes care of both  numeric and non numeric columns.
+#' @param tbl a tbl.
 #' @return a tbl.
 #' @export
 #'

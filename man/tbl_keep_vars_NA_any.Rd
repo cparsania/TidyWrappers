@@ -6,6 +6,9 @@
 \usage{
 tbl_keep_vars_NA_any(tbl)
 }
+\arguments{
+\item{tbl}{a tbl.}
+}
 \value{
 a tbl.
 }
