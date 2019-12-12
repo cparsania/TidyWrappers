@@ -12,11 +12,9 @@
 
 <!-- badges: end -->
 
-TidyWrappers is an R package to deal with an object `tbl`. Utilities
-given here are appropriate to use when a `tbl` has rows are features /
-observations and columns are variables. It provides handy wrapper
-functions on top of `dplyr` verbs to get, count, convert, keep, remove
-and replace data from a `tbl` object.
+TidyWrappers is an R package to deal with an object `tbl`. It provides
+handy wrapper functions on top of `dplyr` verbs to get, count, convert,
+keep, remove and replace data from a `tbl` object.
 
 ## Motivation
 
@@ -28,17 +26,20 @@ Wickham](http://hadley.nz) and [RStudio](https://rstudio.com) team).
 Rich documentation, stable release and excellent functionalities of
 these packages have provoked significant number of R users to switch
 from traditional `dataframes` to intelligible data structure, `tibble`
-(aka `tbl`). `dplyr` provides users with rich utilities like `select`,
-`mutate`, `filter`, `group_by` , `summarise` and `arrange` for easy
-manipulation of a `tibble`. However, for newbie it takes a while to
-become familiar with `tidy data` and `dplyr` core and helper functions.
+(aka `tbl`). [`dplyr`](https://dplyr.tidyverse.org) provides users with
+rich utilities like `select`, `mutate`, `filter`, `group_by` ,
+`summarise` and `arrange` for easy manipulation of a `tbl`. However, for
+newbies it takes a while to become familiar with [`tidy
+data`](https://vita.had.co.nz/papers/tidy-data.pdf) and
+[`dplyr`](https://dplyr.tidyverse.org) core and helper functions.
 
 `TidyWrappers` contains set of functions, which save you little from
-writing and implementing core `dplyr` verbs while manipulating data from
-`tbl`. Additionaly, redundant lines of code can be avoided using
-functions given in `TidyWrappers`. There are more than 30 functions
-implemented in `TidyWrappers`, which wrap various `dplyr` functions
-internally. See below in examples.
+writing and implementing core [`dplyr`](https://dplyr.tidyverse.org)
+verbs while manipulating data from `tbl`. Additionaly, redundant lines
+of code can be avoided using functions given in `TidyWrappers`. Current
+version of `TidyWrappers` containes more than 30 functions, which are
+wrapped on top of various [`dplyr`](https://dplyr.tidyverse.org)
+functions. See below in examples.
 
 ## Install
 
