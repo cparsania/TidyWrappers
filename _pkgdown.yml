@@ -37,6 +37,8 @@ reference:
       - tbl_keep_rows_greater_than_or_equal_any
       - tbl_keep_rows_zero_all
       - tbl_keep_rows_zero_any
+      - tbl_keep_rows_NA_all
+      - tbl_keep_rows_NA_any
   - title: "tbl_keep_vars_*"
     desc: ">"
     contents:
@@ -53,6 +55,8 @@ reference:
       - tbl_remove_rows_less_than_or_equal_all
       - tbl_remove_rows_zero_all
       - tbl_remove_rows_zero_any
+      - tbl_remove_rows_NA_all
+      - tbl_remove_rows_NA_any
   - title: "tbl_remove_vars_*"
     desc: ">"
     contents:
