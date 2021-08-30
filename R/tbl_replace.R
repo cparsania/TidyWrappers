@@ -142,6 +142,7 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 #' @param replace_by a numeric replacement for \code{value}.
 #' @return a tbl
 #' @export
+#' @examples
 #' \dontrun{
 #' set.seed(1234)
 #' tbl <- tibble::tibble(x = c(letters[1:5] ,letters[1:5]),
@@ -150,6 +151,7 @@ tbl_replace_string <- function(tbl, pattern, replacement){
 #'  tbl %>% tbl_replace_numeric(2, 1000)
 #'  tbl %>% tbl_replace_numeric(4, 1000)
 #' }
+#'
 tbl_replace_numeric <- function(tbl, value , replace_by){
 
         if ( !is_tibble(tbl)  ) stop("tbl is not tbl")

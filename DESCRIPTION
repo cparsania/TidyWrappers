@@ -19,6 +19,6 @@ Imports:
     stringi,
     tibble,
     rlang
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
 BugReports: https://github.com/cparsania/TidyWrappers/issues
 URL: https://github.com/cparsania/TidyWrappers
