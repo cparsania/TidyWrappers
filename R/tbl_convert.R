@@ -175,7 +175,7 @@ tbl_convert_row_zscore <- function(tbl, scale = TRUE, center = TRUE){
                         tibble::rownames_to_column(var = row_names_var) %>%
                         tidyr::pivot_longer(cols = c(numeric_vars) , names_to = key_var ,values_to = value_var) %>%
                         dplyr::group_by(!!rlang::sym(row_names_var)) %>%
-                        dplyr::mutate(!!rlang::sym(zscore_var) := scale(!!rlang::sym(value_var) , scale = ..2 , center = ..3)) %>%
+                        dplyr::mutate(!!rlang::sym(zscore_var) := scale(!!rlang::sym(value_var) , scale = ..2 , center = ..3) %>%  as.numeric()) %>%
                         dplyr::ungroup() %>% dplyr::select(-!!rlang::sym(value_var)) %>%
                         tidyr::pivot_wider(names_from = !!rlang::sym(key_var) ,
                                            values_from = c(!!rlang::sym(zscore_var)))%>%
